@@ -66,7 +66,6 @@
         <table class="specs">
           <tr><th>Eclipse</th><td>Placa montada e testada individualmente antes do envio</td></tr>
           <tr><th>Antenas RF</th><td>2 unidades rosqueáveis, já instaladas nos conectores SMA</td></tr>
-          <tr><th>Cabo</th><td>Micro-USB para alimentação (5V) — verifique se está incluso no seu pedido</td></tr>
         </table>
       </div>
     </div>
@@ -84,15 +83,15 @@
         </li>
         <li>
           <h3>Conecte a alimentação</h3>
-          <p>Ligue o cabo Micro-USB a uma fonte 5V (computador, carregador USB ou power bank). O LED indicador deve acender ao energizar a placa.</p>
+          <p>Ligue um cabo Micro-USB a uma fonte 5V (computador, carregador USB ou power bank). O LED indicador deve acender ao energizar a placa.</p>
         </li>
         <li>
-          <h3>[Editar: conexão com o software/firmware]</h3>
-          <p>Descreva aqui como o usuário acessa a interface do Eclipse — por exemplo, conectar via terminal serial, acessar um ponto de acesso WiFi próprio do dispositivo, ou abrir um app/dashboard específico. Inclua a baud rate se for conexão serial.</p>
+          <h3>Ligue e use</h3>
+          <p>Não há software, firmware ou configuração para instalar. Assim que a placa é energizada, o Eclipse já está pronto para operar.</p>
         </li>
         <li>
-          <h3>[Editar: primeira configuração]</h3>
-          <p>Descreva o primeiro passo de configuração — seleção de canal, modo de operação, ou qualquer parâmetro que o usuário precise ajustar antes do primeiro teste.</p>
+          <h3>Troque de modo pelo botão</h3>
+          <p>Use o botão logo ao lado do conector Micro-USB do ESP32 para alternar entre os modos de operação: Bluetooth, Bluetooth Low Energy, WiFi e RC (drones e similares). Cada clique avança para o próximo modo.</p>
         </li>
       </ol>
     </div>
@@ -111,7 +110,6 @@
           <tr><th>Antenas</th><td>2× externas, destacáveis, conector SMA</td></tr>
           <tr><th>Alimentação</th><td>5V via Micro-USB</td></tr>
           <tr><th>Frequência</th><td>2.4GHz (WiFi / Bluetooth)</td></tr>
-          <tr><th>Dimensões da placa</th><td>75 × 50 × 15mm</td></tr>
         </table>
       </div>
     </div>
@@ -122,7 +120,7 @@
     <div class="wrap">
       <p class="eyebrow">04 — Alcance</p>
       <h2>Alcance efetivo</h2>
-      <p>Com base em testes técnicos publicados sobre módulos ESP32 com antena externa, o alcance em ambientes internos com obstáculos (paredes) fica, no cenário mais conservador, entre <strong>12 e 20 metros</strong>. Em espaços abertos e com linha de visada direta, o alcance tende a ser significativamente maior.</p>
+      <p>Em ambientes internos com obstáculos (paredes), o alcance efetivo fica <strong>em torno de 12 metros</strong>. Em espaços abertos e com linha de visada direta, tende a ser maior.</p>
       <p>Fatores como interferência de outros dispositivos 2.4GHz, obstáculos físicos e a potência de transmissão configurada influenciam diretamente o resultado. Recomendamos validar o alcance no seu próprio ambiente antes de definir o escopo de testes ou aulas.</p>
     </div>
   </section>
@@ -151,19 +149,19 @@
 
       <div class="faq-item">
         <h3>O Eclipse já vem configurado de fábrica?</h3>
-        <p>[Editar: descreva se o dispositivo já sai pronto para uso ou se exige alguma configuração inicial.]</p>
+        <p>Sim. O dispositivo sai pronto para uso — basta energizar a placa e ele já está operando.</p>
       </div>
       <div class="faq-item">
         <h3>Preciso instalar algum software?</h3>
-        <p>[Editar: liste dependências, se houver — driver USB, aplicativo, etc.]</p>
+        <p>Não. Não há driver, aplicativo ou firmware para instalar.</p>
       </div>
       <div class="faq-item">
         <h3>O que fazer se o dispositivo não ligar?</h3>
-        <p>[Editar: passos básicos de troubleshooting — checar cabo, checar fonte de alimentação, checar LED.]</p>
+        <p>Verifique a fonte de alimentação: troque o cabo Micro-USB e teste outra fonte 5V. Confirme que o LED indicador acende ao energizar a placa.</p>
       </div>
       <div class="faq-item">
         <h3>Posso usar apenas uma antena?</h3>
-        <p>[Editar: confirme se isso é seguro/suportado ou se ambas são obrigatórias.]</p>
+        <p>Sim, o dispositivo funciona com uma só antena, mas perde eficiência. Para o melhor desempenho, use as duas.</p>
       </div>
     </div>
   </section>

@@ -24,7 +24,7 @@ Site estático (HTML/CSS puro, sem build). Estrutura:
    - Um registro **CNAME** para `www` apontando para `seu-usuario.github.io`
 7. Aguarde a propagação (minutos a algumas horas) e marque a opção **Enforce HTTPS** de volta em Settings → Pages assim que o certificado for emitido.
 
-## O que falta preencher
+## Conteúdo
 
-Os trechos marcados com `[Editar: ...]` em `/thehacklab/docs/index.html` são placeholders —
-preencher com os passos reais de configuração/firmware do Eclipse antes de publicar.
+O conteúdo da página do Eclipse (`/thehacklab/docs/index.html`) já está preenchido.
+Para revisar textos, edite diretamente o HTML — é estático, sem build.
