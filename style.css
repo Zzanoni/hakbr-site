@@ -217,6 +217,39 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 .section { padding: 56px 0; }
 
+/* ---------- Botões ---------- */
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  padding: 13px 20px;
+  border-radius: 8px;
+  background: var(--signal-blue);
+  color: #fff;
+  border: 1px solid var(--signal-blue);
+  text-decoration: none;
+  transition: filter 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover { filter: brightness(1.12); text-decoration: none; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--line-strong);
+}
+
+.btn--ghost:hover { filter: none; border-color: var(--signal-cyan); }
+
 /* ---------- Painel / card ---------- */
 
 .panel {
@@ -310,6 +343,24 @@ a.product-card:hover {
   font-size: 14.5px;
 }
 
+.spec-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.spec-chips li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
 .product-card-cta {
   margin-top: auto;
   font-family: var(--font-mono);
@@ -350,6 +401,38 @@ a.product-card:hover {
   object-fit: cover;
   object-position: center 62%;
   display: block;
+}
+
+/* ---------- Linha de destaques (página de produto) ---------- */
+
+.feature-row {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 26px 30px;
+}
+
+.feat-ic {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--signal-cyan);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 12px;
+}
+
+.feature-row h3 {
+  font-size: 1rem;
+  margin: 0 0 5px;
+}
+
+.feature-row p {
+  font-size: 14px;
+  margin: 0;
 }
 
 /* ---------- Aviso de uso ético ---------- */
