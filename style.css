@@ -163,6 +163,41 @@ img { max-width: 100%; display: block; }
   100% { opacity: 0; }
 }
 
+/* ---------- Escudo + nós — assinatura do HakBr (grupo de serviços) ---------- */
+
+.shield-mark {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.shield-mark svg { width: 100%; height: 100%; display: block; }
+
+.shield-mark .plate {
+  fill: none;
+  stroke: var(--signal-blue);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.shield-mark .mesh {
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+}
+
+.shield-mark .node {
+  fill: var(--signal-cyan);
+  animation: node-pulse 3.2s ease-in-out infinite;
+}
+
+.shield-mark .node:nth-of-type(2) { animation-delay: 0.4s; }
+.shield-mark .node:nth-of-type(3) { animation-delay: 0.8s; }
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.3; }
+  35% { opacity: 1; }
+}
+
 /* ---------- Wireframe/rule dividers ---------- */
 
 .rule {
