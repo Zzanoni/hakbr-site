@@ -282,6 +282,33 @@ strong { color: var(--text-primary); font-weight: 600; }
   gap: 20px;
 }
 
+.product-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-cell .product-card { flex: 1; }
+
+.buy-link {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: center;
+  color: var(--signal-cyan);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.buy-link:hover {
+  border-color: var(--signal-cyan);
+  background: rgba(74, 198, 212, 0.08);
+  text-decoration: none;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
