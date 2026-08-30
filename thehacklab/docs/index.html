@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eclipse — Manual de uso | The Hack Lab</title>
+<meta name="description" content="Manual de uso do Eclipse: instruções de primeiro uso, especificações, alcance e diretrizes de uso ético.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand-crumb">
+    <a href="/">HAKBR</a>
+    <span class="sep">/</span>
+    <a href="/thehacklab/docs/">THE HACK LAB</a>
+    <span class="sep">/</span>
+    <span class="current">ECLIPSE</span>
+  </div>
+  <nav class="topbar-links">
+    <a href="/">hakbr.com.br</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="section" style="padding-top:72px; padding-bottom:56px;">
+    <div class="wrap" style="display:flex; align-items:center; gap:36px; flex-wrap:wrap;">
+      <div class="signal-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle class="core" cx="50" cy="50" r="4"/>
+          <path class="arc" d="M 50 50 m -16 0 a 16 16 0 0 1 32 0" />
+          <path class="arc" d="M 50 50 m -30 0 a 30 30 0 0 1 60 0" />
+          <path class="arc" d="M 50 50 m -44 0 a 44 44 0 0 1 88 0" />
+        </svg>
+      </div>
+      <div style="flex:1; min-width:280px;">
+        <p class="eyebrow">Manual de uso</p>
+        <h1>Eclipse</h1>
+        <p class="lede">Dispositivo de testes RF para cibersegurança — ESP32 com duas antenas destacáveis, para simulação de interferência WiFi/Bluetooth 2.4GHz em laboratórios controlados.</p>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:32px;">
+      <nav class="toc" aria-label="Navegação rápida">
+        <a href="#caixa">O que vem na caixa</a>
+        <a href="#primeiro-uso">Primeiro uso</a>
+        <a href="#specs">Especificações</a>
+        <a href="#alcance">Alcance</a>
+        <a href="#uso-etico">Uso ético</a>
+        <a href="#faq">Dúvidas frequentes</a>
+      </nav>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= O QUE VEM NA CAIXA ================= -->
+  <section class="section" id="caixa">
+    <div class="wrap">
+      <p class="eyebrow">01 — Conteúdo</p>
+      <h2>O que vem na caixa</h2>
+      <div class="panel">
+        <table class="specs">
+          <tr><th>Eclipse</th><td>Placa montada e testada individualmente antes do envio</td></tr>
+          <tr><th>Antenas RF</th><td>2 unidades rosqueáveis, já instaladas nos conectores SMA</td></tr>
+          <tr><th>Cabo</th><td>Micro-USB para alimentação (5V) — verifique se está incluso no seu pedido</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRIMEIRO USO ================= -->
+  <section class="section" id="primeiro-uso">
+    <div class="wrap">
+      <p class="eyebrow">02 — Colocando em funcionamento</p>
+      <h2>Primeiro uso</h2>
+      <ol class="steps">
+        <li>
+          <h3>Confira as antenas</h3>
+          <p>Verifique se as duas antenas estão rosqueadas firmemente nos conectores SMA antes de ligar o dispositivo. Nunca ligue o Eclipse sem as antenas conectadas.</p>
+        </li>
+        <li>
+          <h3>Conecte a alimentação</h3>
+          <p>Ligue o cabo Micro-USB a uma fonte 5V (computador, carregador USB ou power bank). O LED indicador deve acender ao energizar a placa.</p>
+        </li>
+        <li>
+          <h3>[Editar: conexão com o software/firmware]</h3>
+          <p>Descreva aqui como o usuário acessa a interface do Eclipse — por exemplo, conectar via terminal serial, acessar um ponto de acesso WiFi próprio do dispositivo, ou abrir um app/dashboard específico. Inclua a baud rate se for conexão serial.</p>
+        </li>
+        <li>
+          <h3>[Editar: primeira configuração]</h3>
+          <p>Descreva o primeiro passo de configuração — seleção de canal, modo de operação, ou qualquer parâmetro que o usuário precise ajustar antes do primeiro teste.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SPECS ================= -->
+  <section class="section" id="specs">
+    <div class="wrap">
+      <p class="eyebrow">03 — Ficha técnica</p>
+      <h2>Especificações</h2>
+      <div class="panel">
+        <table class="specs">
+          <tr><th>Processador</th><td>ESP32</td></tr>
+          <tr><th>Antenas</th><td>2× externas, destacáveis, conector SMA</td></tr>
+          <tr><th>Alimentação</th><td>5V via Micro-USB</td></tr>
+          <tr><th>Frequência</th><td>2.4GHz (WiFi / Bluetooth)</td></tr>
+          <tr><th>Dimensões da placa</th><td>75 × 50 × 15mm</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ALCANCE ================= -->
+  <section class="section" id="alcance">
+    <div class="wrap">
+      <p class="eyebrow">04 — Alcance</p>
+      <h2>Alcance efetivo</h2>
+      <p>Com base em testes técnicos publicados sobre módulos ESP32 com antena externa, o alcance em ambientes internos com obstáculos (paredes) fica, no cenário mais conservador, entre <strong>12 e 20 metros</strong>. Em espaços abertos e com linha de visada direta, o alcance tende a ser significativamente maior.</p>
+      <p>Fatores como interferência de outros dispositivos 2.4GHz, obstáculos físicos e a potência de transmissão configurada influenciam diretamente o resultado. Recomendamos validar o alcance no seu próprio ambiente antes de definir o escopo de testes ou aulas.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= USO ÉTICO ================= -->
+  <section class="section" id="uso-etico">
+    <div class="wrap">
+      <p class="eyebrow">05 — Leia antes de usar</p>
+      <div class="notice">
+        <span class="glyph">!</span>
+        <div>
+          <h3>Uso exclusivo em ambientes controlados</h3>
+          <p>O Eclipse é destinado a fins educacionais e testes autorizados em laboratórios próprios. Não deve ser utilizado em redes de terceiros sem autorização explícita. O uso indevido de ferramentas de teste RF pode violar legislação local — a responsabilidade pelo uso é inteiramente de quem opera o dispositivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">06 — Dúvidas frequentes</p>
+      <h2>Perguntas frequentes</h2>
+
+      <div class="faq-item">
+        <h3>O Eclipse já vem configurado de fábrica?</h3>
+        <p>[Editar: descreva se o dispositivo já sai pronto para uso ou se exige alguma configuração inicial.]</p>
+      </div>
+      <div class="faq-item">
+        <h3>Preciso instalar algum software?</h3>
+        <p>[Editar: liste dependências, se houver — driver USB, aplicativo, etc.]</p>
+      </div>
+      <div class="faq-item">
+        <h3>O que fazer se o dispositivo não ligar?</h3>
+        <p>[Editar: passos básicos de troubleshooting — checar cabo, checar fonte de alimentação, checar LED.]</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso usar apenas uma antena?</h3>
+        <p>[Editar: confirme se isso é seguro/suportado ou se ambas são obrigatórias.]</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>THE HACK LAB — HAKBR</p>
+    <p><a href="/">← Voltar para hakbr.com.br</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

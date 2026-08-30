@@ -1,0 +1,360 @@
+/* ==========================================================================
+   HakBr — Design tokens
+   Paleta derivada da fotografia de produto já usada (PCB azul, fundo navy
+   com rim-light) + estética de sinal de RF, já que o produto testa
+   interferência WiFi/Bluetooth 2.4GHz.
+   ========================================================================== */
+
+:root {
+  /* Cor */
+  --bg-void: #060911;
+  --bg-panel: #0d1526;
+  --bg-panel-raised: #121f38;
+  --line: rgba(148, 168, 209, 0.14);
+  --line-strong: rgba(148, 168, 209, 0.28);
+
+  --signal-blue: #2e6bf0;
+  --signal-blue-dim: #1c3f8f;
+  --signal-cyan: #3fd6e0;
+
+  --text-primary: #eaeef7;
+  --text-muted: #8b96b3;
+  --text-faint: #566079;
+
+  --warn-bg: rgba(240, 166, 58, 0.1);
+  --warn-border: rgba(240, 166, 58, 0.4);
+  --warn-text: #f0a63a;
+
+  /* Tipografia */
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout */
+  --content-width: 760px;
+  --wide-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fundo com radial glow sutil, ecoando o rim-light das fotos do produto */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 900px 500px at 50% -10%, rgba(46, 107, 240, 0.16), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 90% 10%, rgba(63, 214, 224, 0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a { color: var(--signal-cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--signal-cyan);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Topo / marca ---------- */
+
+.topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-crumb {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.brand-crumb .sep { color: var(--text-faint); }
+.brand-crumb .current { color: var(--text-primary); }
+.brand-crumb a { color: var(--text-muted); }
+.brand-crumb a:hover { color: var(--signal-cyan); }
+
+.topbar-links {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  display: flex;
+  gap: 20px;
+}
+
+/* ---------- Sinal de RF — elemento de assinatura ---------- */
+
+.signal-mark {
+  --r: 46px;
+  width: 96px;
+  height: 96px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.signal-mark svg { width: 100%; height: 100%; }
+
+.signal-mark .arc {
+  fill: none;
+  stroke: var(--signal-blue);
+  stroke-width: 2;
+  opacity: 0;
+  animation: pulse-arc 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.signal-mark .arc:nth-child(1) { animation-delay: 0s; stroke: var(--signal-cyan); }
+.signal-mark .arc:nth-child(2) { animation-delay: 0.35s; }
+.signal-mark .arc:nth-child(3) { animation-delay: 0.7s; }
+
+.signal-mark .core {
+  fill: var(--signal-cyan);
+}
+
+@keyframes pulse-arc {
+  0% { opacity: 0; }
+  20% { opacity: 0.9; }
+  60% { opacity: 0.15; }
+  100% { opacity: 0; }
+}
+
+/* ---------- Wireframe/rule dividers ---------- */
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 48px 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-cyan);
+  margin: 0 0 12px;
+}
+
+/* ---------- Containers ---------- */
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.wrap-wide {
+  position: relative;
+  z-index: 1;
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Tipografia de conteúdo ---------- */
+
+h1, h2, h3 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.08; margin: 0 0 18px; }
+h2 { font-size: 1.5rem; margin: 0 0 14px; }
+h3 { font-size: 1.1rem; margin: 0 0 10px; }
+
+p { color: var(--text-muted); margin: 0 0 16px; }
+p.lede { color: var(--text-primary); font-size: 1.15rem; }
+strong { color: var(--text-primary); font-weight: 600; }
+
+.section { padding: 56px 0; }
+
+/* ---------- Painel / card ---------- */
+
+.panel {
+  background: linear-gradient(180deg, var(--bg-panel-raised), var(--bg-panel));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px 30px;
+}
+
+/* ---------- Aviso de uso ético ---------- */
+
+.notice {
+  border: 1px solid var(--warn-border);
+  background: var(--warn-bg);
+  border-radius: 10px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.notice .glyph {
+  font-family: var(--font-mono);
+  color: var(--warn-text);
+  font-size: 20px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.notice h3 { color: var(--warn-text); margin-bottom: 8px; }
+.notice p { color: var(--text-primary); opacity: 0.9; margin-bottom: 0; }
+
+/* ---------- Tabela de specs ---------- */
+
+table.specs {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+table.specs tr { border-bottom: 1px solid var(--line); }
+table.specs tr:last-child { border-bottom: none; }
+
+table.specs th, table.specs td {
+  text-align: left;
+  padding: 13px 4px;
+  vertical-align: top;
+}
+
+table.specs th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-muted);
+  width: 38%;
+}
+
+table.specs td { color: var(--text-primary); }
+
+/* ---------- Passos numerados ---------- */
+
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 28px 48px;
+  border-left: 1px solid var(--line);
+  margin-left: 15px;
+}
+
+.steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: -15px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--line-strong);
+  color: var(--signal-cyan);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps h3 { margin-bottom: 6px; }
+.steps p { margin-bottom: 0; }
+
+/* ---------- FAQ ---------- */
+
+.faq-item { border-bottom: 1px solid var(--line); padding: 20px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item h3 { color: var(--signal-cyan); font-size: 1rem; margin-bottom: 8px; }
+.faq-item p { margin-bottom: 0; }
+
+/* ---------- Chip de navegação rápida ---------- */
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.toc a {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 7px 14px;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: var(--signal-cyan);
+  border-color: var(--line-strong);
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--line);
+  padding: 32px;
+  margin-top: 40px;
+}
+
+footer .wrap, footer .wrap-wide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer p {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin: 0;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 640px) {
+  .topbar { padding: 18px 20px; }
+  .wrap, .wrap-wide { padding: 0 20px; }
+  .section { padding: 40px 0; }
+  table.specs th { width: 44%; }
+}
