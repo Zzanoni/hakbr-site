@@ -176,13 +176,13 @@ img { max-width: 100%; display: block; }
 
 .hid-mark .kb {
   fill: none;
-  stroke: var(--line-strong);
-  stroke-width: 2;
+  stroke: var(--signal-cyan);
+  stroke-width: 2.5;
 }
 
 .hid-mark .key {
   fill: var(--signal-cyan);
-  opacity: 0.12;
+  opacity: 0.32;
   animation: hid-keypress 2.8s ease-in-out infinite;
 }
 
@@ -198,9 +198,9 @@ img { max-width: 100%; display: block; }
 .hid-mark .key--space { fill: var(--signal-blue); animation-delay: 1.16s; }
 
 @keyframes hid-keypress {
-  0%, 100% { opacity: 0.12; }
+  0%, 100% { opacity: 0.32; }
   6% { opacity: 1; }
-  26% { opacity: 0.12; }
+  26% { opacity: 0.32; }
 }
 
 /* ---------- Wireframe/rule dividers ---------- */
