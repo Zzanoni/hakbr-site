@@ -100,6 +100,14 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
+.brand-crumb a img {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+
 .brand-crumb .sep { color: var(--text-faint); }
 .brand-crumb .current { color: var(--text-primary); }
 .brand-crumb a { color: var(--text-muted); }
