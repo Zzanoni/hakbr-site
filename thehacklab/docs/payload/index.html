@@ -176,7 +176,50 @@ void loop() {
         </li>
         <li>
           <h3>Módulo 4 — Payloads de conscientização</h3>
-          <p>[Editar: exemplos prontos — gerador de senha forte, alerta de segurança — para uso em treinamentos]</p>
+          <p>Dois payloads prontos para usar em treinamento: conecte na frente da pessoa e deixe ela ver acontecer. Os dois só abrem uma janela e digitam texto — nada é instalado, baixado ou alterado no sistema.</p>
+
+          <h4>Exemplo 1 — Alerta de segurança</h4>
+          <p>Abre o Bloco de Notas e escreve um aviso. É o payload do Módulo 3 com mais linhas, usando <code>println()</code> para quebrar a linha a cada frase.</p>
+          <pre><code>#include "DigiKeyboard.h"
+
+void setup() {
+  DigiKeyboard.delay(3000);
+
+  <span class="cm">// Abre o Bloco de Notas pelo "Executar"</span>
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(600);
+  DigiKeyboard.print("notepad");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1200);
+
+  <span class="cm">// Aviso em ASCII (o layout assumido e US)</span>
+  DigiKeyboard.println("=== ALERTA DE SEGURANCA ===");
+  DigiKeyboard.println("");
+  DigiKeyboard.println("Sua estacao ficou desbloqueada e sem supervisao.");
+  DigiKeyboard.println("Isso bastou para um dispositivo USB digitar este aviso.");
+  DigiKeyboard.println("");
+  DigiKeyboard.println("Bloqueie a tela sempre que sair: Win + L.");
+}
+
+void loop() {}</code></pre>
+
+          <h4>Exemplo 2 — Gerador de senha forte</h4>
+          <p>Abre o PowerShell e roda um comando de uma linha que monta uma senha aleatória e a deixa na tela.</p>
+          <pre><code>#include "DigiKeyboard.h"
+
+void setup() {
+  DigiKeyboard.delay(3000);
+
+  <span class="cm">// Win + R e chama o PowerShell com um comando embutido</span>
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(600);
+  DigiKeyboard.println("powershell -NoExit -Command \"-join ((33..126) | Get-Random -Count 20 | ForEach-Object {[char]$_})\"");
+}
+
+void loop() {}</code></pre>
+          <p>O comando pega 20 números entre 33 e 126 (a faixa de caracteres imprimíveis da tabela ASCII), converte cada um no caractere correspondente e junta tudo numa senha de 20 posições. O <code>-NoExit</code> mantém a janela aberta com a senha à mostra; ajuste o <code>-Count</code> para mudar o comprimento.</p>
+
+          <p>Use estes payloads só em máquinas da sua organização e com as pessoas cientes de que é um treinamento — a senha aparece em texto puro na tela, então não serve para gerar segredo real numa máquina que não é sua. O contraponto (como bloquear tudo isso) vem no Módulo 5.</p>
         </li>
         <li>
           <h3>Módulo 5 — Boas práticas de defesa</h3>

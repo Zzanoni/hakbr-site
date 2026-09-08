@@ -640,6 +640,7 @@ table.specs td { color: var(--text-primary); }
 }
 
 .steps h3 { margin-bottom: 6px; }
+.steps h4 { font-size: 0.95rem; margin: 0; color: var(--text-primary); }
 .steps p { margin-bottom: 0; }
 
 /* Ritmo vertical entre blocos dentro de um módulo */
@@ -647,9 +648,11 @@ table.specs td { color: var(--text-primary); }
 .steps > li > * + ul,
 .steps > li > * + ol,
 .steps > li > * + pre,
+.steps > li > * + h4,
 .steps > li > * + details,
 .steps > li > * + .block { margin-top: 12px; }
 .steps > li > h3 + p { margin-top: 0; }
+.steps > li > h4 + pre { margin-top: 8px; }
 
 /* Listas aninhadas dentro de um módulo */
 .steps > li ul,
