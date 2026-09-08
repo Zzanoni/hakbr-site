@@ -366,26 +366,6 @@ pre .cm { color: var(--text-faint); }
   color: var(--text-muted);
 }
 
-/* ---------- Chamada do The Hack Lab (home) ---------- */
-
-.lab-callout {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.lab-callout-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-}
-
-@media (max-width: 640px) {
-  .lab-callout { flex-direction: column; gap: 14px; }
-}
-
 /* ---------- Painel / card ---------- */
 
 .panel {
