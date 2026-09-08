@@ -223,7 +223,38 @@ void loop() {}</code></pre>
         </li>
         <li>
           <h3>Módulo 5 — Boas práticas de defesa</h3>
-          <p>[Editar: como proteger um ambiente/empresa contra esse tipo de ataque — política de USB, DLP, etc.]</p>
+          <p>O ponto que orienta toda a defesa: um ataque HID é um <em>teclado</em>, não um disco. Bloquear pen drive de armazenamento e política de DLP para arquivos <strong>não impedem</strong> um payload de digitar comandos — esses controles nem veem o dispositivo. A proteção real vem de outras camadas.</p>
+
+          <h4>1. Reduza a janela de oportunidade</h4>
+          <ul>
+            <li><strong>Bloqueio de tela automático</strong> e o hábito de <code>Win + L</code> ao se levantar. O payload precisa de uma sessão desbloqueada — sem ela, quase todos falham.</li>
+            <li><strong>Menor privilégio.</strong> O código roda como o usuário logado; sem admin local, o estrago fica limitado e instalações são barradas.</li>
+            <li><strong>Acesso físico.</strong> Em recepção, quiosque e chão de fábrica, use bloqueadores de porta USB e libere só as portas necessárias.</li>
+          </ul>
+
+          <h4>2. Controle quais dispositivos USB podem conectar</h4>
+          <ul>
+            <li><strong>Windows</strong> — via GPO (<em>Device Installation Restrictions</em>) ou Intune, negue por padrão a instalação de novos dispositivos e mantenha uma lista de permissão por <em>hardware ID</em> ou classe. Dá para barrar a classe HID de dispositivos não homologados.</li>
+            <li><strong>Linux</strong> — <code>USBGuard</code> aplica uma allowlist por descritor USB; novos dispositivos ficam bloqueados até aprovação.</li>
+            <li><strong>macOS</strong> — desde o Ventura, todo acessório USB/Thunderbolt novo precisa ser aprovado no prompt "Permitir que acessórios se conectem".</li>
+            <li>Algumas plataformas de gestão (Intune, EPM) permitem recusar dispositivos novos enquanto a tela está bloqueada — fecha o cenário do "pluga e sai".</li>
+          </ul>
+
+          <h4>3. Trave a execução</h4>
+          <ul>
+            <li><strong>AppLocker</strong> ou <strong>WDAC</strong> para permitir só binários e scripts aprovados.</li>
+            <li><strong>PowerShell</strong> em <em>Constrained Language Mode</em>, com <em>Script Block Logging</em> e transcrição ligados.</li>
+            <li>Para usuários padrão, desabilite a caixa <em>Executar</em> e o acesso a <code>cmd</code>/<code>powershell</code> quando não forem necessários.</li>
+          </ul>
+
+          <h4>4. Detecte o que passar</h4>
+          <ul>
+            <li><strong>EDR</strong> e <strong>Sysmon</strong> pegam a cadeia suspeita (<code>explorer.exe</code> → <code>powershell.exe</code> logo após conectar um dispositivo) e a linha de comando usada.</li>
+            <li>Ferramentas que barram <strong>digitação em velocidade sobre-humana</strong> — DuckHunt no Windows, <code>uskip</code> no Linux.</li>
+            <li>Alerta quando um <strong>segundo teclado</strong> é enumerado numa estação que já tem um.</li>
+          </ul>
+
+          <p>Nenhuma camada sozinha resolve; juntas, elas tiram do payload o tempo, o dispositivo e a execução de que ele depende.</p>
         </li>
         <li>
           <h3>Módulo 6 — Desafios práticos</h3>
