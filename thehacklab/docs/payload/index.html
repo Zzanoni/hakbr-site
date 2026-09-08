@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payload — dispositivo HID educacional | The Hack Lab</title>
+<meta name="description" content="Payload: dispositivo educacional de injeção de teclado (HID) baseado em ATtiny85. Payload Lab, especificações, primeiro contato e uso ético.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HakBr">
+<meta property="og:title" content="Payload — dispositivo HID educacional | The Hack Lab">
+<meta property="og:description" content="Dispositivo educacional de injeção de teclado (HID). Aprenda como funcionam ataques via USB, na prática e em ambiente controlado.">
+<meta property="og:url" content="https://hakbr.com.br/thehacklab/docs/payload/">
+<meta property="og:image" content="https://hakbr.com.br/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <img class="topbar-logo" src="../../../assets/thehacklab-logo-sm.jpg" alt="The Hack Lab" width="240" height="240">
+    <div class="brand-crumb">
+      <a href="../../../">HAKBR</a>
+      <span class="sep">/</span>
+      <a href="../">THE HACK LAB</a>
+      <span class="sep">/</span>
+      <span class="current">PAYLOAD</span>
+    </div>
+  </div>
+  <nav class="topbar-links">
+    <a href="../../../">hakbr.com.br</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="section" style="padding-top:72px; padding-bottom:56px;">
+    <div class="wrap" style="display:flex; align-items:center; gap:36px; flex-wrap:wrap;">
+      <div class="signal-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle class="core" cx="50" cy="50" r="4"/>
+          <path class="arc" d="M 50 50 m -16 0 a 16 16 0 0 1 32 0" />
+          <path class="arc" d="M 50 50 m -30 0 a 30 30 0 0 1 60 0" />
+          <path class="arc" d="M 50 50 m -44 0 a 44 44 0 0 1 88 0" />
+        </svg>
+      </div>
+      <div style="flex:1; min-width:280px;">
+        <p class="eyebrow">The Hack Lab · Dispositivo HID educacional</p>
+        <h1>Payload</h1>
+        <p class="lede">Dispositivo educacional de injeção de teclado (HID) — aprenda como funcionam ataques via USB, na prática e em ambiente controlado.</p>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:32px;">
+      <nav class="toc" aria-label="Navegação rápida">
+        <a href="#caixa">O que vem na caixa</a>
+        <a href="#lab">Payload Lab</a>
+        <a href="#specs">Especificações</a>
+        <a href="#uso-etico">Uso ético</a>
+        <a href="#faq">Dúvidas frequentes</a>
+      </nav>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= O QUE VEM NA CAIXA ================= -->
+  <section class="section" id="caixa">
+    <div class="wrap">
+      <p class="eyebrow">01 — Conteúdo</p>
+      <h2>O que vem na caixa</h2>
+      <div class="panel">
+        <table class="specs">
+          <tr><th>Payload</th><td>Dispositivo montado e testado individualmente antes do envio (Digispark / ATtiny85)</td></tr>
+          <tr><th>Firmware</th><td>Firmware educacional pré-instalado</td></tr>
+          <tr><th>Case</th><td>Case protetor</td></tr>
+          <tr><th>Payload Lab</th><td>Acesso à trilha de estudo (abaixo)</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAYLOAD LAB ================= -->
+  <section class="section" id="lab">
+    <div class="wrap">
+      <p class="eyebrow">02 — Trilha de estudo</p>
+      <h2>Payload Lab</h2>
+      <p>Seis módulos, do conceito à defesa. Cada módulo pode ser estudado na ordem apresentada.</p>
+      <ol class="steps">
+        <li>
+          <h3>Módulo 1 — Como funciona um ataque HID</h3>
+          <p>[Editar: explicação conceitual de ataques de injeção de teclado, por que dispositivos USB desconhecidos são um vetor de risco, sem código ainda]</p>
+        </li>
+        <li>
+          <h3>Módulo 2 — Configurando o ambiente</h3>
+          <p>[Editar: passo a passo de instalação do Arduino IDE + board manager do Digispark]</p>
+        </li>
+        <li>
+          <h3>Módulo 3 — Seu primeiro payload</h3>
+          <p>[Editar: exemplo de código comentado linha por linha — abrir bloco de notas e escrever uma mensagem]</p>
+        </li>
+        <li>
+          <h3>Módulo 4 — Payloads de conscientização</h3>
+          <p>[Editar: exemplos prontos — gerador de senha forte, alerta de segurança — para uso em treinamentos]</p>
+        </li>
+        <li>
+          <h3>Módulo 5 — Boas práticas de defesa</h3>
+          <p>[Editar: como proteger um ambiente/empresa contra esse tipo de ataque — política de USB, DLP, etc.]</p>
+        </li>
+        <li>
+          <h3>Módulo 6 — Desafios práticos</h3>
+          <p>[Editar: 2-3 exercícios propostos. Cada um com a solução colapsável abaixo.]</p>
+          <details class="solution">
+            <summary>Desafio 1 — solução</summary>
+            <p>[Editar: enunciado do desafio 1 e solução comentada]</p>
+          </details>
+          <details class="solution">
+            <summary>Desafio 2 — solução</summary>
+            <p>[Editar: enunciado do desafio 2 e solução comentada]</p>
+          </details>
+          <details class="solution">
+            <summary>Desafio 3 — solução</summary>
+            <p>[Editar: enunciado do desafio 3 e solução comentada]</p>
+          </details>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SPECS ================= -->
+  <section class="section" id="specs">
+    <div class="wrap">
+      <p class="eyebrow">03 — Ficha técnica</p>
+      <h2>Especificações</h2>
+      <div class="panel">
+        <table class="specs">
+          <tr><th>Microcontrolador</th><td>ATtiny85</td></tr>
+          <tr><th>Interface</th><td>USB (emulação HID)</td></tr>
+          <tr><th>Programável via</th><td>Arduino IDE</td></tr>
+          <tr><th>Case</th><td>[Editar conforme o case escolhido]</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= USO ÉTICO ================= -->
+  <section class="section" id="uso-etico">
+    <div class="wrap">
+      <p class="eyebrow">04 — Leia antes de usar</p>
+      <div class="notice">
+        <span class="glyph">!</span>
+        <div>
+          <h3>Uso exclusivo em ambientes controlados e de sua propriedade</h3>
+          <p>Este produto é destinado a fins educacionais e treinamentos de conscientização em segurança. Conectar este dispositivo em computadores de terceiros sem autorização pode configurar crime de invasão de dispositivo informático (Art. 154-A do Código Penal).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">05 — Dúvidas frequentes</p>
+      <h2>Perguntas frequentes</h2>
+
+      <div class="faq-item">
+        <h3>Preciso saber programar para usar?</h3>
+        <p>[Editar]</p>
+      </div>
+      <div class="faq-item">
+        <h3>O firmware de fábrica já faz alguma coisa sozinho?</h3>
+        <p>[Editar]</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso reprogramar quantas vezes eu quiser?</h3>
+        <p>[Editar]</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img class="foot-logo" src="../../../assets/thehacklab-logo-sm.jpg" alt="The Hack Lab" width="240" height="240">
+      <p>THE HACK LAB — HAKBR</p>
+    </div>
+    <p><a href="../../../">← Voltar para hakbr.com.br</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

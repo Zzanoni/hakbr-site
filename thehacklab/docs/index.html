@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eclipse — dispositivo RF 2.4 GHz | The Hack Lab</title>
-<meta name="description" content="Eclipse: dispositivo RF 2.4 GHz com ESP32 e duas antenas destacáveis. Bluetooth, BLE, WiFi e RC num botão. Especificações, primeiro uso, alcance e uso ético.">
+<title>Documentação — The Hack Lab | HakBr</title>
+<meta name="description" content="Documentação dos produtos The Hack Lab: manuais, especificações e trilhas de estudo do Eclipse e do Payload.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HakBr">
-<meta property="og:title" content="Eclipse — dispositivo RF 2.4GHz | The Hack Lab">
-<meta property="og:description" content="ESP32 com duas antenas destacáveis. Bluetooth, BLE, WiFi e RC num botão — liga e usa, sem software.">
+<meta property="og:title" content="Documentação — The Hack Lab | HakBr">
+<meta property="og:description" content="Manuais, especificações e trilhas de estudo dos produtos The Hack Lab.">
 <meta property="og:url" content="https://hakbr.com.br/thehacklab/docs/">
 <meta property="og:image" content="https://hakbr.com.br/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,7 @@
     <div class="brand-crumb">
       <a href="../../">HAKBR</a>
       <span class="sep">/</span>
-      <a href="./">THE HACK LAB</a>
-      <span class="sep">/</span>
-      <span class="current">ECLIPSE</span>
+      <span class="current">THE HACK LAB</span>
     </div>
   </div>
   <nav class="topbar-links">
@@ -40,8 +38,7 @@
 </header>
 
 <main>
-  <!-- ================= HERO ================= -->
-  <section class="section" style="padding-top:72px; padding-bottom:56px;">
+  <section class="section" style="padding-top:72px; padding-bottom:40px;">
     <div class="wrap" style="display:flex; align-items:center; gap:36px; flex-wrap:wrap;">
       <div class="signal-mark" aria-hidden="true">
         <svg viewBox="0 0 100 100">
@@ -52,182 +49,25 @@
         </svg>
       </div>
       <div style="flex:1; min-width:280px;">
-        <p class="eyebrow">The Hack Lab · Dispositivo RF 2.4 GHz</p>
-        <h1>Eclipse</h1>
-        <p class="lede">Dispositivo de testes RF para cibersegurança — ESP32 com duas antenas destacáveis, para simulação de interferência WiFi/Bluetooth 2.4GHz em laboratórios controlados.</p>
-        <div class="hero-cta">
-          <a class="btn" href="https://shopee.com.br/product/374200618/58253549850/" target="_blank" rel="noopener">Comprar na Shopee ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap" style="margin-top:36px;">
-      <figure class="hero-shot">
-        <img src="../../assets/eclipse.jpg" alt="Duas unidades do Eclipse, frente e verso — placa azul com a marca The Hack Lab, cada uma com duas antenas RF" width="1200" height="1200" loading="lazy">
-      </figure>
-    </div>
-
-    <div class="wrap" style="margin-top:32px;">
-      <nav class="toc" aria-label="Navegação rápida">
-        <a href="#caixa">O que vem na caixa</a>
-        <a href="#primeiro-uso">Primeiro uso</a>
-        <a href="#specs">Especificações</a>
-        <a href="#alcance">Alcance</a>
-        <a href="#uso-etico">Uso ético</a>
-        <a href="#faq">Dúvidas frequentes</a>
-      </nav>
-    </div>
-  </section>
-
-  <!-- ================= DESTAQUES ================= -->
-  <section class="section" id="destaques" style="padding-top:8px;">
-    <div class="wrap-wide">
-      <ul class="feature-row">
-        <li>
-          <svg class="feat-ic" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="8" width="18" height="8" rx="4"/>
-            <circle cx="9" cy="12" r="2.4"/>
-          </svg>
-          <h3>4 modos num botão</h3>
-          <p>Bluetooth, BLE, WiFi e RC (drones e similares). Cada clique avança o modo — sem reconectar nada.</p>
-        </li>
-        <li>
-          <svg class="feat-ic" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 3v9"/>
-            <path d="M6.5 7a8 8 0 1 0 11 0"/>
-          </svg>
-          <h3>Liga e usa</h3>
-          <p>Sai configurado de fábrica. Sem firmware, driver ou app para instalar — energizou, está pronto.</p>
-        </li>
-        <li>
-          <svg class="feat-ic" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 21 17 5"/>
-            <path d="M13 21 21 9"/>
-            <path d="m5 13 6 4"/>
-          </svg>
-          <h3>Duas antenas SMA</h3>
-          <p>Externas e destacáveis, já instaladas. Funciona com uma só, mas as duas dão o melhor alcance.</p>
-        </li>
-        <li>
-          <svg class="feat-ic" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="7" y="7" width="10" height="10" rx="1.5"/>
-            <path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>
-          </svg>
-          <h3>ESP32 · 2.4 GHz</h3>
-          <p>Alcance efetivo em torno de 12 m em ambiente interno com paredes; maior em campo aberto.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ================= O QUE VEM NA CAIXA ================= -->
-  <section class="section" id="caixa">
-    <div class="wrap">
-      <p class="eyebrow">01 — Conteúdo</p>
-      <h2>O que vem na caixa</h2>
-      <div class="panel">
-        <table class="specs">
-          <tr><th>Eclipse</th><td>Placa montada e testada individualmente antes do envio</td></tr>
-          <tr><th>Antenas RF</th><td>2 unidades rosqueáveis, já instaladas nos conectores SMA</td></tr>
-        </table>
+        <p class="eyebrow">The Hack Lab</p>
+        <h1>Documentação</h1>
+        <p class="lede">Manuais, especificações e trilhas de estudo dos produtos The Hack Lab. Escolha um dispositivo abaixo.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= PRIMEIRO USO ================= -->
-  <section class="section" id="primeiro-uso">
-    <div class="wrap">
-      <p class="eyebrow">02 — Colocando em funcionamento</p>
-      <h2>Primeiro uso</h2>
-      <ol class="steps">
-        <li>
-          <h3>Confira as antenas</h3>
-          <p>Verifique se as duas antenas estão rosqueadas firmemente nos conectores SMA antes de ligar o dispositivo. Nunca ligue o Eclipse sem as antenas conectadas.</p>
-        </li>
-        <li>
-          <h3>Conecte a alimentação</h3>
-          <p>Ligue um cabo Micro-USB a uma fonte 5V (computador, carregador USB ou power bank). O LED indicador deve acender ao energizar a placa.</p>
-        </li>
-        <li>
-          <h3>Ligue e use</h3>
-          <p>Não há software, firmware ou configuração para instalar. Assim que a placa é energizada, o Eclipse já está pronto para operar.</p>
-        </li>
-        <li>
-          <h3>Troque de modo pelo botão</h3>
-          <p>Use o botão logo ao lado do conector Micro-USB do ESP32 para alternar entre os modos de operação: Bluetooth, Bluetooth Low Energy, WiFi e RC (drones e similares). Cada clique avança para o próximo modo.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ================= SPECS ================= -->
-  <section class="section" id="specs">
-    <div class="wrap">
-      <p class="eyebrow">03 — Ficha técnica</p>
-      <h2>Especificações</h2>
-      <div class="panel">
-        <table class="specs">
-          <tr><th>Processador</th><td>ESP32</td></tr>
-          <tr><th>Antenas</th><td>2× externas, destacáveis, conector SMA</td></tr>
-          <tr><th>Alimentação</th><td>5V via Micro-USB</td></tr>
-          <tr><th>Frequência</th><td>2.4GHz (WiFi / Bluetooth)</td></tr>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ALCANCE ================= -->
-  <section class="section" id="alcance">
-    <div class="wrap">
-      <p class="eyebrow">04 — Alcance</p>
-      <h2>Alcance efetivo</h2>
-      <p>Em ambientes internos com obstáculos (paredes), o alcance efetivo fica <strong>em torno de 12 metros</strong>. Em espaços abertos e com linha de visada direta, tende a ser maior.</p>
-      <p>Fatores como interferência de outros dispositivos 2.4GHz, obstáculos físicos e a potência de transmissão configurada influenciam diretamente o resultado. Recomendamos validar o alcance no seu próprio ambiente antes de definir o escopo de testes ou aulas.</p>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ================= USO ÉTICO ================= -->
-  <section class="section" id="uso-etico">
-    <div class="wrap">
-      <p class="eyebrow">05 — Leia antes de usar</p>
-      <div class="notice">
-        <span class="glyph">!</span>
-        <div>
-          <h3>Uso exclusivo em ambientes controlados</h3>
-          <p>O Eclipse é destinado a fins educacionais e testes autorizados em laboratórios próprios. Não deve ser utilizado em redes de terceiros sem autorização explícita. O uso indevido de ferramentas de teste RF pode violar legislação local — a responsabilidade pelo uso é inteiramente de quem opera o dispositivo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FAQ ================= -->
-  <section class="section" id="faq">
-    <div class="wrap">
-      <p class="eyebrow">06 — Dúvidas frequentes</p>
-      <h2>Perguntas frequentes</h2>
-
-      <div class="faq-item">
-        <h3>O Eclipse já vem configurado de fábrica?</h3>
-        <p>Sim. O dispositivo sai pronto para uso — basta energizar a placa e ele já está operando.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Preciso instalar algum software?</h3>
-        <p>Não. Não há driver, aplicativo ou firmware para instalar.</p>
-      </div>
-      <div class="faq-item">
-        <h3>O que fazer se o dispositivo não ligar?</h3>
-        <p>Verifique a fonte de alimentação: troque o cabo Micro-USB e teste outra fonte 5V. Confirme que o LED indicador acende ao energizar a placa.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Posso usar apenas uma antena?</h3>
-        <p>Sim, o dispositivo funciona com uma só antena, mas perde eficiência. Para o melhor desempenho, use as duas.</p>
-      </div>
+  <section class="section" style="padding-top:8px;">
+    <div class="wrap" style="display:grid; gap:18px;">
+      <a class="panel" href="eclipse/">
+        <h3 style="margin-bottom:8px;">Eclipse →</h3>
+        <p style="margin-bottom:12px;">Dispositivo RF 2.4 GHz — ESP32, duas antenas destacáveis, 4 modos num botão. Primeiro uso, especificações, alcance e uso ético.</p>
+        <span class="product-card-cta">Abrir manual →</span>
+      </a>
+      <a class="panel" href="payload/">
+        <h3 style="margin-bottom:8px;">Payload →</h3>
+        <p style="margin-bottom:12px;">Dispositivo educacional de injeção de teclado (HID). O que vem na caixa, Payload Lab (trilha de estudo), especificações e uso ético.</p>
+        <span class="product-card-cta">Abrir manual →</span>
+      </a>
     </div>
   </section>
 </main>
