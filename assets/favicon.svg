@@ -1,13 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="13" fill="#14283c"/>
-  <g fill="none" stroke="#f2f0ea" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(-1.5 0)">
-    <!-- t -->
-    <path d="M15 15 L15 41 C15 45 18 46.5 23 45.5"/>
-    <path d="M8 25 L23 25"/>
-    <!-- h -->
-    <path d="M29 12 L29 46"/>
-    <path d="M29 33 C29 25 43 25 43 33 L43 46"/>
-    <!-- l -->
-    <path d="M52 12 L52 41 C52 45 55 46.5 60 45.5"/>
-  </g>
+  <defs>
+    <mask id="hb-notch">
+      <rect width="64" height="64" fill="#fff"/>
+      <circle cx="32" cy="1.8" r="10.9" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#2F69F6" mask="url(#hb-notch)"/>
+  <circle cx="32" cy="4.6" r="4.6" fill="#3DD5E2"/>
 </svg>
