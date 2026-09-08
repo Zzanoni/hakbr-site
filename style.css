@@ -273,6 +273,32 @@ code.block {
   line-height: 1.5;
 }
 
+pre {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  background: var(--bg-void);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 0;
+  overflow-x: auto;
+  color: var(--text-primary);
+}
+
+pre code {
+  font-size: inherit;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: inherit;
+  overflow-wrap: normal;
+  white-space: pre;
+}
+
+pre .cm { color: var(--text-faint); }
+
 .section { padding: 56px 0; }
 
 /* ---------- Botões ---------- */
@@ -620,6 +646,7 @@ table.specs td { color: var(--text-primary); }
 .steps > li > * + p,
 .steps > li > * + ul,
 .steps > li > * + ol,
+.steps > li > * + pre,
 .steps > li > * + details,
 .steps > li > * + .block { margin-top: 12px; }
 .steps > li > h3 + p { margin-top: 0; }

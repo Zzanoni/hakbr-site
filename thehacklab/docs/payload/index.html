@@ -137,7 +137,42 @@
         </li>
         <li>
           <h3>Módulo 3 — Seu primeiro payload</h3>
-          <p>[Editar: exemplo de código comentado linha por linha — abrir bloco de notas e escrever uma mensagem]</p>
+          <p>O "hello world" do HID: o Payload abre o Bloco de Notas do Windows e digita uma mensagem. Não há nada malicioso aqui — o objetivo é ver, na prática, a sequência que todos os outros payloads seguem: esperar, abrir algo, digitar.</p>
+          <pre><code>#include "DigiKeyboard.h"   <span class="cm">// biblioteca de teclado do Digispark</span>
+
+void setup() {
+  <span class="cm">// 1. Espera o computador reconhecer o dispositivo como teclado</span>
+  DigiKeyboard.delay(3000);
+
+  <span class="cm">// 2. Win + R: abre a caixa "Executar" do Windows</span>
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(600);
+
+  <span class="cm">// 3. Digita "notepad" e confirma com Enter</span>
+  DigiKeyboard.print("notepad");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1200);
+
+  <span class="cm">// 4. Escreve a mensagem (sem acento: o layout assumido e US)</span>
+  DigiKeyboard.print("Este PC ficou desbloqueado e sem ninguem por perto.");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.print("Um dispositivo USB digitou isso sozinho em 5 segundos.");
+}
+
+void loop() {
+  <span class="cm">// vazio: o payload roda uma vez, no setup()</span>
+}</code></pre>
+          <p>Trecho a trecho:</p>
+          <ul>
+            <li><code>#include "DigiKeyboard.h"</code> — traz a biblioteca que faz o Digispark se apresentar como um teclado USB.</li>
+            <li><code>DigiKeyboard.delay(3000)</code> — pausa de 3 segundos. Diferente do <code>delay()</code> comum, esta versão mantém a conexão USB viva enquanto espera; é o tempo que o sistema leva para reconhecer o "teclado".</li>
+            <li><code>sendKeyStroke(KEY_R, MOD_GUI_LEFT)</code> — pressiona uma combinação: a tecla <em>R</em> junto com a tecla <em>Windows</em> (GUI). É o atalho que abre o "Executar".</li>
+            <li><code>print("notepad")</code> — "digita" o texto caractere por caractere, como um humano faria.</li>
+            <li><code>sendKeyStroke(KEY_ENTER)</code> — pressiona só o Enter, sem texto.</li>
+            <li><code>setup()</code> roda uma única vez quando a placa é energizada; <code>loop()</code> fica vazio de propósito — não queremos o payload repetindo em loop infinito.</li>
+          </ul>
+          <p>A mensagem está sem acento porque a <code>DigiKeyboard</code> assume um teclado US: <code>ç</code>, <code>ã</code> e <code>é</code> sairiam trocados num teclado ABNT2. Para texto em português é preciso mapear os scancodes manualmente ou usar uma lib alternativa — por ora, escreva em ASCII.</p>
+          <p>Grave seguindo o Módulo 2: clique em <em>Carregar</em> e conecte a placa quando a IDE pedir. Assim que ela é reconhecida, os 3 segundos correm e o Bloco de Notas abre digitando sozinho. Em um treinamento, troque o texto por uma orientação da política de segurança da empresa — ver a frase aparecer sozinha comunica o risco melhor que qualquer slide.</p>
         </li>
         <li>
           <h3>Módulo 4 — Payloads de conscientização</h3>
