@@ -337,11 +337,20 @@ pre .cm { color: var(--text-faint); }
 /* ---------- Wordmark HakBr (topo da home) ---------- */
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.02em;
   color: var(--text-primary);
+}
+
+.wordmark img {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
 .wordmark:hover { color: var(--signal-cyan); text-decoration: none; }
