@@ -620,17 +620,25 @@ table.specs td { color: var(--text-primary); }
 .steps > li > * + p,
 .steps > li > * + ul,
 .steps > li > * + ol,
-.steps > li > * + details { margin-top: 12px; }
+.steps > li > * + details,
+.steps > li > * + .block { margin-top: 12px; }
 .steps > li > h3 + p { margin-top: 0; }
 
 /* Listas aninhadas dentro de um módulo */
-.steps ul,
-.steps ol { margin: 12px 0 0; padding-left: 22px; }
-.steps ul { list-style: disc; }
-.steps ol { list-style: decimal; }
-.steps li li { margin: 0 0 6px; padding: 0; }
-.steps li li:last-child { margin-bottom: 0; }
-.steps li li::marker { color: var(--signal-cyan); }
+.steps > li ul,
+.steps > li ol {
+  margin: 12px 0 0;
+  padding-left: 26px;
+}
+.steps > li ul { list-style-type: disc; }
+.steps > li ol { list-style-type: decimal; }
+.steps > li li {
+  display: list-item;
+  margin: 0 0 6px;
+  padding-left: 4px;
+}
+.steps > li li:last-child { margin-bottom: 0; }
+.steps > li li::marker { color: var(--signal-cyan); }
 
 /* ---------- Solução colapsável (desafios do Payload Lab) ---------- */
 

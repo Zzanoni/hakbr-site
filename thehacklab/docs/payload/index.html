@@ -120,11 +120,12 @@
           <p>Um detalhe importante: a Digistump, fabricante original do Digispark, encerrou as atividades e o endereço oficial do pacote saiu do ar. Use o fork mantido pela comunidade (ArminJo), que ainda funciona e corrige a compatibilidade com as versões atuais da IDE.</p>
           <ol>
             <li>Instale a <strong>Arduino IDE 2.x</strong> a partir de <em>arduino.cc/en/software</em>.</li>
-            <li>Abra <em>Arquivo → Preferências</em> e cole no campo "URLs adicionais para Gerenciadores de Placas":<code class="block">https://raw.githubusercontent.com/ArminJo/DigistumpArduino/master/package_digistump_index.json</code></li>
+            <li>Abra <em>Arquivo → Preferências</em> e cole a URL abaixo no campo "URLs adicionais para Gerenciadores de Placas".</li>
             <li>Vá em <em>Ferramentas → Placa → Gerenciador de Placas</em>, busque por <em>Digistump AVR</em> e instale o pacote <strong>Digistump AVR Boards</strong>.</li>
             <li>Em <em>Ferramentas → Placa</em>, selecione <strong>Digispark (Default – 16.5MHz)</strong>.</li>
-            <li>Instale o driver USB conforme o seu sistema (abaixo).</li>
+            <li>Instale o driver USB conforme o seu sistema (veja abaixo).</li>
           </ol>
+          <code class="block">https://raw.githubusercontent.com/ArminJo/DigistumpArduino/master/package_digistump_index.json</code>
           <p>O driver USB depende do sistema:</p>
           <ul>
             <li><strong>Windows</strong> — rode o <code>Install Digistump Drivers.bat</code> que acompanha o pacote, ou use o <em>Zadig</em> para instalar o driver libusb do bootloader. Sem ele o Windows não reconhece a placa na hora de gravar.</li>
