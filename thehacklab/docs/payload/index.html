@@ -102,7 +102,17 @@
       <ol class="steps">
         <li>
           <h3>Módulo 1 — Como funciona um ataque HID</h3>
-          <p>[Editar: explicação conceitual de ataques de injeção de teclado, por que dispositivos USB desconhecidos são um vetor de risco, sem código ainda]</p>
+          <p>HID (<em>Human Interface Device</em>) é a classe de dispositivos USB que inclui teclados e mouses. Quando você conecta um teclado, o sistema operacional não pede driver, não mostra aviso e não pergunta nada: ele confia. Um ataque de injeção de teclado explora exatamente essa confiança. O dispositivo se apresenta ao computador como um teclado comum e, em vez de esperar um humano digitar, "digita" sozinho uma sequência de comandos — em segundos, à velocidade da máquina.</p>
+          <p>O que torna a técnica eficaz não é nenhuma vulnerabilidade de software, e sim o modelo de confiança do USB: o computador não tem como distinguir um teclado real de um microcontrolador que finge ser um. Os comandos rodam com as permissões do usuário que está logado, sem instalar nada e sem tocar o disco necessariamente. A limitação prática é que a sessão precisa estar desbloqueada e o layout de teclado configurado no alvo precisa bater com o que o payload espera — caso contrário os caracteres saem trocados.</p>
+          <p>A ideia foi popularizada pelo <strong>USB Rubber Ducky</strong>, da Hak5, que trazia uma linguagem própria de scripts (DuckyScript) num pen drive só para isso. Em 2014, a pesquisa <strong>BadUSB</strong> (SR Labs) mostrou que o firmware de dispositivos USB comuns pode ser reprogramado para se comportar como teclado. Hoje o mesmo efeito se consegue com hardware de poucos reais: o ATtiny85 / Digispark (base do Payload), o Raspberry Pi Pico com o projeto pico-ducky, o Malduino, e implantes escondidos dentro de cabos de carregamento aparentemente normais, como o O.MG Cable.</p>
+          <p>Por isso um dispositivo USB de origem desconhecida é um vetor de risco concreto:</p>
+          <ul>
+            <li>Não dá para confiar na aparência — um "pen drive" pode ser um teclado, e um "cabo" pode carregar um implante com Wi-Fi.</li>
+            <li>Um único dispositivo pode se declarar como teclado, armazenamento e placa de rede ao mesmo tempo.</li>
+            <li>O vetor mais comum é social: um pen drive "perdido" num estacionamento ou recepção. Num estudo clássico da Universidade de Illinois, cerca de 48% dos drives espalhados pelo campus foram conectados por quem os encontrou.</li>
+            <li>Assim que é conectado, o dispositivo age em um ou dois segundos — antes de qualquer suspeita.</li>
+          </ul>
+          <p>Nos próximos módulos você monta o ambiente, escreve seu primeiro payload e, no Módulo 5, vê o outro lado: como bloquear esse tipo de ataque em um parque de máquinas.</p>
         </li>
         <li>
           <h3>Módulo 2 — Configurando o ambiente</h3>
