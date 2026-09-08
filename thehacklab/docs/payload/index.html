@@ -125,7 +125,12 @@
             <li>Em <em>Ferramentas → Placa</em>, selecione <strong>Digispark (Default – 16.5MHz)</strong>.</li>
             <li>Instale o driver USB conforme o seu sistema (abaixo).</li>
           </ol>
-          <p><strong>Windows:</strong> rode o <code>Install Digistump Drivers.bat</code> que acompanha o pacote — ou use o <em>Zadig</em> para instalar o driver libusb do bootloader. Sem ele o Windows não reconhece a placa na hora de gravar. <strong>Linux:</strong> crie a regra udev <code>/etc/udev/rules.d/49-micronucleus.rules</code> (disponível no repositório do fork) e recarregue com <code>sudo udevadm control --reload-rules</code> para gravar sem <code>sudo</code>. <strong>macOS:</strong> nenhum driver é necessário.</p>
+          <p>O driver USB depende do sistema:</p>
+          <ul>
+            <li><strong>Windows</strong> — rode o <code>Install Digistump Drivers.bat</code> que acompanha o pacote, ou use o <em>Zadig</em> para instalar o driver libusb do bootloader. Sem ele o Windows não reconhece a placa na hora de gravar.</li>
+            <li><strong>Linux</strong> — crie a regra udev <code>/etc/udev/rules.d/49-micronucleus.rules</code> (disponível no repositório do fork) e recarregue com <code>sudo udevadm control --reload-rules</code> para gravar sem <code>sudo</code>.</li>
+            <li><strong>macOS</strong> — nenhum driver é necessário.</li>
+          </ul>
           <p><strong>Na hora de gravar, a placa fica desconectada.</strong> Diferente de um Arduino comum, você clica em <em>Carregar</em> primeiro; quando a IDE mostrar <em>"Plug in device now… (will timeout in 60 seconds)"</em>, aí sim conecte o Payload. O bootloader <em>micronucleus</em> só fica ativo por cerca de 5 segundos a cada vez que a placa é energizada — é nessa janela que a gravação acontece.</p>
           <p>Para confirmar que está tudo certo, carregue o exemplo <em>Blink</em> (<em>Arquivo → Exemplos → Digispark_Examples → Start</em>), ajustando o pino do LED embutido — <code>P0</code> ou <code>P1</code>, conforme a revisão da placa. Se o LED piscar, o ambiente está pronto para o Módulo 3.</p>
         </li>
