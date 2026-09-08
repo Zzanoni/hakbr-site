@@ -116,7 +116,18 @@
         </li>
         <li>
           <h3>Módulo 2 — Configurando o ambiente</h3>
-          <p>[Editar: passo a passo de instalação do Arduino IDE + board manager do Digispark]</p>
+          <p>O Payload é programado pela <strong>Arduino IDE</strong> — a mesma ferramenta de qualquer projeto Arduino. Como o chip é um ATtiny85 numa placa Digispark, e não um Arduino Uno, é preciso adicionar o suporte a essa placa: ele não vem de fábrica na IDE.</p>
+          <p>Um detalhe importante: a Digistump, fabricante original do Digispark, encerrou as atividades e o endereço oficial do pacote saiu do ar. Use o fork mantido pela comunidade (ArminJo), que ainda funciona e corrige a compatibilidade com as versões atuais da IDE.</p>
+          <ol>
+            <li>Instale a <strong>Arduino IDE 2.x</strong> a partir de <em>arduino.cc/en/software</em>.</li>
+            <li>Abra <em>Arquivo → Preferências</em> e cole no campo "URLs adicionais para Gerenciadores de Placas":<code class="block">https://raw.githubusercontent.com/ArminJo/DigistumpArduino/master/package_digistump_index.json</code></li>
+            <li>Vá em <em>Ferramentas → Placa → Gerenciador de Placas</em>, busque por <em>Digistump AVR</em> e instale o pacote <strong>Digistump AVR Boards</strong>.</li>
+            <li>Em <em>Ferramentas → Placa</em>, selecione <strong>Digispark (Default – 16.5MHz)</strong>.</li>
+            <li>Instale o driver USB conforme o seu sistema (abaixo).</li>
+          </ol>
+          <p><strong>Windows:</strong> rode o <code>Install Digistump Drivers.bat</code> que acompanha o pacote — ou use o <em>Zadig</em> para instalar o driver libusb do bootloader. Sem ele o Windows não reconhece a placa na hora de gravar. <strong>Linux:</strong> crie a regra udev <code>/etc/udev/rules.d/49-micronucleus.rules</code> (disponível no repositório do fork) e recarregue com <code>sudo udevadm control --reload-rules</code> para gravar sem <code>sudo</code>. <strong>macOS:</strong> nenhum driver é necessário.</p>
+          <p><strong>Na hora de gravar, a placa fica desconectada.</strong> Diferente de um Arduino comum, você clica em <em>Carregar</em> primeiro; quando a IDE mostrar <em>"Plug in device now… (will timeout in 60 seconds)"</em>, aí sim conecte o Payload. O bootloader <em>micronucleus</em> só fica ativo por cerca de 5 segundos a cada vez que a placa é energizada — é nessa janela que a gravação acontece.</p>
+          <p>Para confirmar que está tudo certo, carregue o exemplo <em>Blink</em> (<em>Arquivo → Exemplos → Digispark_Examples → Start</em>), ajustando o pino do LED embutido — <code>P0</code> ou <code>P1</code>, conforme a revisão da placa. Se o LED piscar, o ambiente está pronto para o Módulo 3.</p>
         </li>
         <li>
           <h3>Módulo 3 — Seu primeiro payload</h3>

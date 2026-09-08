@@ -255,6 +255,24 @@ p { color: var(--text-muted); margin: 0 0 16px; }
 p.lede { color: var(--text-primary); font-size: 1.15rem; }
 strong { color: var(--text-primary); font-weight: 600; }
 
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+code.block {
+  display: block;
+  margin-top: 6px;
+  padding: 8px 10px;
+  line-height: 1.5;
+}
+
 .section { padding: 56px 0; }
 
 /* ---------- Botões ---------- */
@@ -599,18 +617,27 @@ table.specs td { color: var(--text-primary); }
 .steps p { margin-bottom: 0; }
 .steps li p + p,
 .steps li p + ul,
-.steps li ul + p { margin-top: 12px; }
-.steps li ul { list-style: disc; padding-left: 22px; margin-bottom: 0; }
-.steps li ul li {
+.steps li p + ol,
+.steps li ul + p,
+.steps li ol + p { margin-top: 12px; }
+.steps li ul,
+.steps li ol { padding-left: 22px; margin-bottom: 0; }
+.steps li ul { list-style: disc; }
+.steps li ol { list-style: decimal; }
+.steps li ul li,
+.steps li ol li {
   counter-increment: none;
   position: static;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   padding: 0;
   border: 0;
 }
-.steps li ul li:last-child { margin-bottom: 0; }
-.steps li ul li::before { content: none; }
-.steps li ul li::marker { color: var(--signal-cyan); }
+.steps li ul li:last-child,
+.steps li ol li:last-child { margin-bottom: 0; }
+.steps li ul li::before,
+.steps li ol li::before { content: none; }
+.steps li ul li::marker,
+.steps li ol li::marker { color: var(--signal-cyan); }
 
 /* ---------- Solução colapsável (desafios do Payload Lab) ---------- */
 
