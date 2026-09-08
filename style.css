@@ -163,6 +163,46 @@ img { max-width: 100%; display: block; }
   100% { opacity: 0; }
 }
 
+/* ---------- Teclado HID — assinatura da página do Payload ---------- */
+
+.hid-mark {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hid-mark svg { width: 100%; height: 100%; }
+
+.hid-mark .kb {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 2;
+}
+
+.hid-mark .key {
+  fill: var(--signal-cyan);
+  opacity: 0.12;
+  animation: hid-keypress 2.8s ease-in-out infinite;
+}
+
+/* Ondas de "digitação automática" varrendo as teclas */
+.hid-mark .key:nth-of-type(2) { animation-delay: 0s; }
+.hid-mark .key:nth-of-type(3) { animation-delay: 0.14s; }
+.hid-mark .key:nth-of-type(4) { animation-delay: 0.28s; }
+.hid-mark .key:nth-of-type(5) { animation-delay: 0.42s; }
+.hid-mark .key:nth-of-type(6) { animation-delay: 0.56s; }
+.hid-mark .key:nth-of-type(7) { animation-delay: 0.7s; }
+.hid-mark .key:nth-of-type(8) { animation-delay: 0.84s; }
+.hid-mark .key:nth-of-type(9) { animation-delay: 0.98s; }
+.hid-mark .key--space { fill: var(--signal-blue); animation-delay: 1.16s; }
+
+@keyframes hid-keypress {
+  0%, 100% { opacity: 0.12; }
+  6% { opacity: 1; }
+  26% { opacity: 0.12; }
+}
+
 /* ---------- Wireframe/rule dividers ---------- */
 
 .rule {
