@@ -334,6 +334,58 @@ pre .cm { color: var(--text-faint); }
 
 .btn--ghost:hover { filter: none; border-color: var(--signal-cyan); }
 
+/* ---------- Wordmark HakBr (topo da home) ---------- */
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.wordmark:hover { color: var(--signal-cyan); text-decoration: none; }
+
+/* ---------- Linha de relação de marca (hero da home) ---------- */
+
+.hero-relation {
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 2px solid var(--line-strong);
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Byline em cabeçalho de seção ---------- */
+
+.section-byline {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ---------- Chamada do The Hack Lab (home) ---------- */
+
+.lab-callout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.lab-callout-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .lab-callout { flex-direction: column; gap: 14px; }
+}
+
 /* ---------- Painel / card ---------- */
 
 .panel {

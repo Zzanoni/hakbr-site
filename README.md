@@ -3,10 +3,18 @@
 Site estático (HTML/CSS puro, sem build). Estrutura:
 
 ```
-/index.html                      → hakbr.com.br
-/thehacklab/docs/index.html      → hakbr.com.br/thehacklab/docs
-/style.css                       → estilos compartilhados
+/index.html                        → hakbr.com.br
+/sobre/index.html                  → hakbr.com.br/sobre
+/thehacklab/index.html             → hakbr.com.br/thehacklab   (o laboratório)
+/thehacklab/docs/index.html        → hakbr.com.br/thehacklab/docs
+/thehacklab/docs/eclipse/          → manual do Eclipse
+/thehacklab/docs/payload/          → manual do Payload
+/style.css                         → estilos compartilhados
 ```
+
+**Marca:** HakBr é a marca-mãe; The Hack Lab é o braço de hardware (marca
+endossada). Páginas HakBr usam o wordmark tipográfico "HakBr"; páginas do
+laboratório e dos produtos levam a logo "thl" no topo.
 
 ## Como colocar no ar (GitHub Pages)
 
@@ -26,5 +34,5 @@ Site estático (HTML/CSS puro, sem build). Estrutura:
 
 ## Conteúdo
 
-O conteúdo da página do Eclipse (`/thehacklab/docs/index.html`) já está preenchido.
-Para revisar textos, edite diretamente o HTML — é estático, sem build.
+O conteúdo das páginas já está preenchido. Para revisar textos, edite
+diretamente o HTML — é estático, sem build.
