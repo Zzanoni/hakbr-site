@@ -690,6 +690,10 @@ table.specs td { color: var(--text-primary); }
 }
 
 .solution p { margin: 12px 0 0; font-size: 14px; }
+.solution pre,
+.solution ul,
+.solution ol { margin-top: 10px; }
+.steps > li > details + h4 { margin-top: 22px; }
 
 /* ---------- FAQ ---------- */
 
