@@ -1,29 +1,40 @@
 /* ==========================================================================
    HakBr — Design tokens
-   Paleta derivada da fotografia de produto já usada (PCB azul, fundo navy
-   com rim-light) + estética de sinal de RF, já que o produto testa
-   interferência WiFi/Bluetooth 2.4GHz.
+   Tema escuro (padrão) + tema claro via [data-theme="light"] no <html>.
+   Uma única cor de destaque: o azul HakBr. Paleta ancorada na logo
+   (navy #14283c + creme #f2f0ea).
    ========================================================================== */
 
 :root {
-  /* Cor — ancorada na logo do The Hack Lab (navy #14283c + creme #f2f0ea) */
+  /* --- Tema ESCURO (padrão) --- */
   --bg-void: #0c1a27;
   --bg-panel: #14283c;
   --bg-panel-raised: #1e3448;
+  --bg-inset: #0a1620;
   --line: rgba(220, 228, 240, 0.12);
   --line-strong: rgba(220, 228, 240, 0.26);
 
-  --signal-blue: #3f7ef2;
-  --signal-blue-dim: #23509f;
-  --signal-cyan: #4ac6d4;
+  /* Cor de destaque — única (azul HakBr) */
+  --accent: #3f7ef2;
+  --accent-hover: #5f96f6;
+  --accent-quiet: rgba(63, 126, 242, 0.14);
+  --on-accent: #ffffff;
+
+  /* Detalhe pontual do Eclipse (produto RF) — não é cor de UI */
+  --eclipse-cyan: #4ac6d4;
 
   --text-primary: #f2f0ea;
-  --text-muted: #9aa6b6;
-  --text-faint: #61707f;
+  --text-muted: #a7b2c0;
+  --text-faint: #7d8a99;
 
   --warn-bg: rgba(240, 166, 58, 0.1);
   --warn-border: rgba(240, 166, 58, 0.4);
   --warn-text: #f0a63a;
+
+  --glow-1: rgba(63, 126, 242, 0.14);
+  --glow-2: rgba(63, 126, 242, 0.05);
+
+  --shadow-card: none;
 
   /* Tipografia */
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -32,13 +43,45 @@
   /* Layout */
   --content-width: 760px;
   --wide-width: 1080px;
+
+  color-scheme: dark;
+}
+
+/* --- Tema CLARO --- */
+:root[data-theme="light"] {
+  --bg-void: #f7f6f2;
+  --bg-panel: #ffffff;
+  --bg-panel-raised: #ffffff;
+  --bg-inset: #f0eee7;
+  --line: rgba(20, 40, 60, 0.12);
+  --line-strong: rgba(20, 40, 60, 0.26);
+
+  --accent: #1f4fd0;
+  --accent-hover: #163fb0;
+  --accent-quiet: rgba(31, 79, 208, 0.09);
+  --on-accent: #ffffff;
+
+  --eclipse-cyan: #0f8393;
+
+  --text-primary: #14283c;
+  --text-muted: #4a5766;
+  --text-faint: #5c6875;
+
+  --warn-bg: rgba(180, 83, 9, 0.08);
+  --warn-border: rgba(180, 83, 9, 0.38);
+  --warn-text: #9a4708;
+
+  --glow-1: rgba(63, 126, 242, 0.07);
+  --glow-2: rgba(63, 126, 242, 0.03);
+
+  --shadow-card: 0 1px 2px rgba(20, 40, 60, 0.06), 0 6px 20px rgba(20, 40, 60, 0.05);
+
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -53,6 +96,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* Fundo com radial glow sutil, ecoando o rim-light das fotos do produto */
@@ -61,17 +105,18 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 900px 500px at 50% -10%, rgba(63, 126, 242, 0.14), transparent 60%),
-    radial-gradient(ellipse 600px 400px at 90% 10%, rgba(74, 198, 212, 0.05), transparent 60%);
+    radial-gradient(ellipse 900px 500px at 50% -10%, var(--glow-1), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 90% 10%, var(--glow-2), transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
-a { color: var(--signal-cyan); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--signal-cyan);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
+  border-radius: 4px;
 }
 
 img { max-width: 100%; display: block; }
@@ -80,18 +125,114 @@ img { max-width: 100%; display: block; }
 
 .topbar {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 22px 32px;
+  padding: 18px 32px;
   border-bottom: 1px solid var(--line);
+  background: var(--bg-void);
+}
+
+/* Wordmark HakBr — usado no header de TODAS as páginas */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.wordmark img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.wordmark:hover { color: var(--accent); text-decoration: none; }
+
+.topbar-links {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.topbar-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.topbar-links a:hover { color: var(--accent); text-decoration: none; }
+
+/* Link "Academy" em destaque (pill accent) */
+.topbar-links a.nav-academy {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  padding: 6px 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.topbar-links a.nav-academy:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Botão de alternância de tema */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle svg { width: 18px; height: 18px; display: block; }
+
+/* Sol visível no escuro (clique → claro); lua visível no claro (clique → escuro) */
+.theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-sun { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+/* ---------- Barra de breadcrumb (páginas internas) ---------- */
+
+.crumbbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-panel);
+}
+
+.crumb-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .brand-crumb {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12.5px;
   letter-spacing: 0.06em;
   color: var(--text-muted);
   display: flex;
@@ -100,42 +241,12 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
-.brand-crumb a img {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: -3px;
-  margin-right: 6px;
-}
-
 .brand-crumb .sep { color: var(--text-faint); }
 .brand-crumb .current { color: var(--text-primary); }
 .brand-crumb a { color: var(--text-muted); }
-.brand-crumb a:hover { color: var(--signal-cyan); }
+.brand-crumb a:hover { color: var(--accent); }
 
-.topbar-links {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  display: flex;
-  gap: 20px;
-}
-
-/* Logo do The Hack Lab no topo das páginas de docs */
-.topbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-
-.topbar-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-/* ---------- Sinal de RF — elemento de assinatura ---------- */
+/* ---------- Sinal de RF — assinatura do Eclipse ---------- */
 
 .signal-mark {
   --r: 46px;
@@ -149,20 +260,18 @@ img { max-width: 100%; display: block; }
 
 .signal-mark .arc {
   fill: none;
-  stroke: var(--signal-blue);
+  stroke: var(--accent);
   stroke-width: 2;
   opacity: 0;
   animation: pulse-arc 3.2s ease-in-out infinite;
   transform-origin: center;
 }
 
-.signal-mark .arc:nth-child(1) { animation-delay: 0s; stroke: var(--signal-cyan); }
+.signal-mark .arc:nth-child(1) { animation-delay: 0s; stroke: var(--eclipse-cyan); }
 .signal-mark .arc:nth-child(2) { animation-delay: 0.35s; }
 .signal-mark .arc:nth-child(3) { animation-delay: 0.7s; }
 
-.signal-mark .core {
-  fill: var(--signal-cyan);
-}
+.signal-mark .core { fill: var(--eclipse-cyan); }
 
 @keyframes pulse-arc {
   0% { opacity: 0; }
@@ -171,7 +280,7 @@ img { max-width: 100%; display: block; }
   100% { opacity: 0; }
 }
 
-/* ---------- Teclado HID — assinatura da página do Payload ---------- */
+/* ---------- Teclado HID — assinatura do Payload ---------- */
 
 .hid-mark {
   width: 96px;
@@ -184,17 +293,16 @@ img { max-width: 100%; display: block; }
 
 .hid-mark .kb {
   fill: none;
-  stroke: var(--signal-cyan);
+  stroke: var(--accent);
   stroke-width: 2.5;
 }
 
 .hid-mark .key {
-  fill: var(--signal-cyan);
+  fill: var(--accent);
   opacity: 0.32;
   animation: hid-keypress 2.8s ease-in-out infinite;
 }
 
-/* Ondas de "digitação automática" varrendo as teclas */
 .hid-mark .key:nth-of-type(2) { animation-delay: 0s; }
 .hid-mark .key:nth-of-type(3) { animation-delay: 0.14s; }
 .hid-mark .key:nth-of-type(4) { animation-delay: 0.28s; }
@@ -203,7 +311,7 @@ img { max-width: 100%; display: block; }
 .hid-mark .key:nth-of-type(7) { animation-delay: 0.7s; }
 .hid-mark .key:nth-of-type(8) { animation-delay: 0.84s; }
 .hid-mark .key:nth-of-type(9) { animation-delay: 0.98s; }
-.hid-mark .key--space { fill: var(--signal-blue); animation-delay: 1.16s; }
+.hid-mark .key--space { animation-delay: 1.16s; }
 
 @keyframes hid-keypress {
   0%, 100% { opacity: 0.32; }
@@ -211,7 +319,7 @@ img { max-width: 100%; display: block; }
   26% { opacity: 0.32; }
 }
 
-/* ---------- Wireframe/rule dividers ---------- */
+/* ---------- Divisores ---------- */
 
 .rule {
   border: none;
@@ -224,7 +332,7 @@ img { max-width: 100%; display: block; }
   font-size: 12.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--signal-cyan);
+  color: var(--accent);
   margin: 0 0 12px;
 }
 
@@ -285,7 +393,7 @@ pre {
   font-family: var(--font-mono);
   font-size: 12.5px;
   line-height: 1.65;
-  background: var(--bg-void);
+  background: var(--bg-inset);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 16px 18px;
@@ -325,14 +433,14 @@ pre .cm { color: var(--text-faint); }
   line-height: 1;
   padding: 13px 20px;
   border-radius: 8px;
-  background: var(--signal-blue);
-  color: #fff;
-  border: 1px solid var(--signal-blue);
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
   text-decoration: none;
-  transition: filter 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.btn:hover { filter: brightness(1.12); text-decoration: none; }
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); text-decoration: none; }
 
 .btn--ghost {
   background: transparent;
@@ -340,35 +448,14 @@ pre .cm { color: var(--text-faint); }
   border-color: var(--line-strong);
 }
 
-.btn--ghost:hover { filter: none; border-color: var(--signal-cyan); }
-
-/* ---------- Wordmark HakBr (topo da home) ---------- */
-
-.wordmark {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
-}
-
-.wordmark img {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.wordmark:hover { color: var(--signal-cyan); text-decoration: none; }
+.btn--ghost:hover { background: var(--accent-quiet); border-color: var(--accent); color: var(--text-primary); }
 
 /* ---------- Linha de relação de marca (hero da home) ---------- */
 
 .hero-relation {
   margin-top: 14px;
   padding-left: 14px;
-  border-left: 2px solid var(--line-strong);
+  border-left: 2px solid var(--accent);
   font-size: 0.98rem;
   color: var(--text-muted);
 }
@@ -390,16 +477,16 @@ pre .cm { color: var(--text-faint); }
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 28px 30px;
+  box-shadow: var(--shadow-card);
 }
 
-/* Painel usado como link (hub da documentação) */
 a.panel {
   display: block;
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 a.panel:hover {
-  border-color: var(--line-strong);
+  border-color: var(--accent);
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -423,7 +510,7 @@ a.panel:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -440,7 +527,7 @@ a.panel:hover {
   font-family: var(--font-mono);
   font-size: 13px;
   text-align: center;
-  color: var(--signal-cyan);
+  color: var(--accent);
   border: 1px solid var(--line-strong);
   border-radius: 10px;
   padding: 12px 14px;
@@ -449,8 +536,9 @@ a.panel:hover {
 }
 
 .buy-link:hover {
-  border-color: var(--signal-cyan);
-  background: rgba(74, 198, 212, 0.08);
+  border-color: var(--accent);
+  background: var(--accent-quiet);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -462,18 +550,19 @@ a.panel:hover {
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
+  box-shadow: var(--shadow-card);
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 a.product-card:hover {
-  border-color: var(--line-strong);
+  border-color: var(--accent);
   transform: translateY(-2px);
   text-decoration: none;
 }
 
 .product-card-media {
   aspect-ratio: 1 / 1;
-  background: #0a1620;
+  background: var(--bg-inset);
   border-bottom: 1px solid var(--line);
 }
 
@@ -537,7 +626,7 @@ a.product-card:hover {
   margin-top: auto;
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--signal-cyan);
+  color: var(--accent);
 }
 
 .badge {
@@ -545,18 +634,18 @@ a.product-card:hover {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--signal-cyan);
-  border: 1px solid var(--line-strong);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 100px;
   padding: 4px 10px;
   white-space: nowrap;
 }
 
-.badge--muted { color: var(--text-faint); }
+.badge--muted { color: var(--text-muted); border-color: var(--line-strong); }
 
-.product-card.is-soon { opacity: 0.55; }
+.product-card.is-soon { opacity: 0.7; }
 
-/* Foto de produto no topo da página do Eclipse */
+/* Foto de produto no topo das páginas de produto */
 .hero-shot {
   margin: 0 auto;
   max-width: 620px;
@@ -564,7 +653,7 @@ a.product-card:hover {
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
-  background: #0a1620;
+  background: var(--bg-inset);
 }
 
 .hero-shot img {
@@ -590,7 +679,7 @@ a.product-card:hover {
   width: 26px;
   height: 26px;
   fill: none;
-  stroke: var(--signal-cyan);
+  stroke: var(--accent);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -628,7 +717,7 @@ a.product-card:hover {
 }
 
 .notice h3 { color: var(--warn-text); margin-bottom: 8px; }
-.notice p { color: var(--text-primary); opacity: 0.9; margin-bottom: 0; }
+.notice p { color: var(--text-primary); margin-bottom: 0; }
 
 /* ---------- Tabela de specs ---------- */
 
@@ -679,8 +768,8 @@ table.specs td { color: var(--text-primary); }
   height: 30px;
   border-radius: 50%;
   background: var(--bg-panel-raised);
-  border: 1px solid var(--line-strong);
-  color: var(--signal-cyan);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-family: var(--font-mono);
   font-size: 12px;
   display: flex;
@@ -692,7 +781,6 @@ table.specs td { color: var(--text-primary); }
 .steps h4 { font-size: 0.95rem; margin: 0; color: var(--text-primary); }
 .steps p { margin-bottom: 0; }
 
-/* Ritmo vertical entre blocos dentro de um módulo */
 .steps > li > * + p,
 .steps > li > * + ul,
 .steps > li > * + ol,
@@ -703,7 +791,6 @@ table.specs td { color: var(--text-primary); }
 .steps > li > h3 + p { margin-top: 0; }
 .steps > li > h4 + pre { margin-top: 8px; }
 
-/* Listas aninhadas dentro de um módulo */
 .steps > li ul,
 .steps > li ol {
   margin: 12px 0 0;
@@ -717,7 +804,7 @@ table.specs td { color: var(--text-primary); }
   padding-left: 4px;
 }
 .steps > li li:last-child { margin-bottom: 0; }
-.steps > li li::marker { color: var(--signal-cyan); }
+.steps > li li::marker { color: var(--accent); }
 
 /* ---------- Solução colapsável (desafios do Payload Lab) ---------- */
 
@@ -726,7 +813,7 @@ table.specs td { color: var(--text-primary); }
   border-radius: 8px;
   padding: 12px 16px;
   margin-top: 12px;
-  background: var(--bg-void);
+  background: var(--bg-inset);
 }
 
 .solution + .solution { margin-top: 8px; }
@@ -734,7 +821,7 @@ table.specs td { color: var(--text-primary); }
 .solution summary {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--signal-cyan);
+  color: var(--accent);
   cursor: pointer;
 }
 
@@ -748,8 +835,99 @@ table.specs td { color: var(--text-primary); }
 
 .faq-item { border-bottom: 1px solid var(--line); padding: 20px 0; }
 .faq-item:last-child { border-bottom: none; }
-.faq-item h3 { color: var(--signal-cyan); font-size: 1rem; margin-bottom: 8px; }
+.faq-item h3 { color: var(--accent); font-size: 1rem; margin-bottom: 8px; }
 .faq-item p { margin-bottom: 0; }
+
+/* ---------- Academy: grid de certificações ---------- */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.cert-card {
+  background: linear-gradient(180deg, var(--bg-panel-raised), var(--bg-panel));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cert-card .cert-name {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cert-card .cert-org {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------- Academy: lista de espera ---------- */
+
+.waitlist-form {
+  margin-top: 26px;
+}
+
+.form-placeholder {
+  border: 1px dashed var(--line-strong);
+  background: var(--accent-quiet);
+  border-radius: 12px;
+  padding: 36px 28px;
+  text-align: center;
+}
+
+.form-placeholder .mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+.form-placeholder p:not(.mono) {
+  max-width: 460px;
+  margin: 0 auto 18px;
+  font-size: 14.5px;
+}
+
+.consent {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.founder-note {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-quiet);
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* ---------- Disclaimer (rodapé Academy) ---------- */
+
+.disclaimer {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-faint);
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 8px;
+}
 
 /* ---------- Chip de navegação rápida ---------- */
 
@@ -770,8 +948,9 @@ table.specs td { color: var(--text-primary); }
 }
 
 .toc a:hover {
-  color: var(--signal-cyan);
-  border-color: var(--line-strong);
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 /* ---------- Rodapé ---------- */
@@ -782,6 +961,7 @@ footer {
   border-top: 1px solid var(--line);
   padding: 32px;
   margin-top: 40px;
+  background: var(--bg-void);
 }
 
 footer .wrap, footer .wrap-wide {
@@ -799,6 +979,9 @@ footer p {
   margin: 0;
 }
 
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--accent); }
+
 .foot-brand {
   display: flex;
   align-items: center;
@@ -812,13 +995,27 @@ footer p {
   border: 1px solid var(--line);
 }
 
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
 /* ---------- Responsivo ---------- */
 
-@media (max-width: 640px) {
-  .topbar { padding: 18px 20px; }
+@media (max-width: 760px) {
+  .topbar { padding: 16px 20px; flex-wrap: wrap; gap: 12px 16px; }
+  .topbar-links { gap: 16px; font-size: 12.5px; }
+  .crumbbar { padding: 10px 20px; }
   .wrap, .wrap-wide { padding: 0 20px; }
   .section { padding: 40px 0; }
   table.specs th { width: 44%; }
   .section-head { gap: 14px; margin-bottom: 24px; }
   .line-logo { width: 44px; height: 44px; }
+  .signal-mark, .hid-mark { width: 72px; height: 72px; }
+}
+
+@media (max-width: 420px) {
+  .topbar-links { gap: 12px; }
+  .topbar-links a.nav-academy { padding: 5px 11px; }
 }
