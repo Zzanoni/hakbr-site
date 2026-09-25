@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem('hakbr-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 <title>The Hack Lab — laboratório de hardware do HakBr</title>
 <meta name="description" content="The Hack Lab é o laboratório de hardware do HakBr: onde o Eclipse, o Payload e os próximos gadgets são projetados, montados e documentados no Brasil.">
 <meta property="og:type" content="website">
@@ -24,35 +25,34 @@
 <body>
 
 <header class="topbar">
-  <div class="topbar-brand">
-    <img class="topbar-logo" src="../assets/thehacklab-logo-sm.jpg" alt="The Hack Lab" width="240" height="240">
-    <div class="brand-crumb">
-      <a href="../">HAKBR</a>
-      <span class="sep">/</span>
-      <span class="current">THE HACK LAB</span>
-    </div>
-  </div>
+  <a class="wordmark" href="../"><img src="../assets/hakbr-logo.png" alt="" width="18" height="18" style="width:18px;height:18px">HakBr</a>
   <nav class="topbar-links">
-    <a href="../">hakbr.com.br</a>
+    <a href="../#produtos">Gadgets</a>
+    <a href="docs/">Docs</a>
+    <a href="../sobre/">Sobre</a>
+    <a class="nav-academy" href="../academy/">Academy</a>
+    <button class="theme-toggle" type="button" aria-label="Alternar tema">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+    </button>
   </nav>
 </header>
 
+<div class="crumbbar">
+  <img class="crumb-logo" src="../assets/thehacklab-logo-sm.jpg" alt="The Hack Lab">
+  <div class="brand-crumb">
+    <a href="../">HAKBR</a>
+    <span class="sep">/</span>
+    <span class="current">THE HACK LAB</span>
+  </div>
+</div>
+
 <main>
   <section class="section" style="padding-top:72px; padding-bottom:48px;">
-    <div class="wrap" style="display:flex; align-items:center; gap:36px; flex-wrap:wrap;">
-      <div class="signal-mark" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
-          <circle class="core" cx="50" cy="50" r="4"/>
-          <path class="arc" d="M 50 50 m -16 0 a 16 16 0 0 1 32 0" />
-          <path class="arc" d="M 50 50 m -30 0 a 30 30 0 0 1 60 0" />
-          <path class="arc" d="M 50 50 m -44 0 a 44 44 0 0 1 88 0" />
-        </svg>
-      </div>
-      <div style="flex:1; min-width:280px;">
-        <p class="eyebrow">Um laboratório HakBr</p>
-        <h1>The Hack Lab</h1>
-        <p class="lede">O braço de hardware do HakBr. É aqui que os gadgets de segurança ofensiva são projetados, montados e documentados — no Brasil.</p>
-      </div>
+    <div class="wrap">
+      <p class="eyebrow">Um laboratório HakBr</p>
+      <h1>The Hack Lab</h1>
+      <p class="lede">O braço de hardware do HakBr. É aqui que os gadgets de segurança ofensiva são projetados, montados e documentados — no Brasil.</p>
     </div>
   </section>
 
@@ -105,14 +105,20 @@
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap-wide">
     <div class="foot-brand">
       <img class="foot-logo" src="../assets/thehacklab-logo-sm.jpg" alt="The Hack Lab" width="240" height="240">
       <p>The Hack Lab · HakBr</p>
     </div>
-    <p><a href="../">← Voltar para hakbr.com.br</a></p>
+    <nav class="foot-links" aria-label="Rodapé">
+      <a href="../#produtos">Gadgets</a>
+      <a href="../academy/">Academy</a>
+      <a href="docs/">Docs</a>
+      <a href="../sobre/">Sobre</a>
+    </nav>
   </div>
 </footer>
 
+<script src="../app.js" defer></script>
 </body>
 </html>
