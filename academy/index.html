@@ -211,30 +211,14 @@
         <strong>Preço de fundador:</strong> quem entrar na lista de espera garante uma condição especial de fundador no lançamento.
       </div>
 
-      <!--
-        ==========================================================================
-        LISTA DE ESPERA — EMBED DO TALLY
-        Como preencher:
-          1. No Tally, abra o formulário → Share → Embed → "Standard".
-          2. Copie o <iframe> gerado e substitua TODO o bloco .form-placeholder
-             abaixo por ele; OU troque apenas TALLY_FORM_URL (2 ocorrências:
-             o iframe comentado logo abaixo e o href do botão) e descomente o iframe.
-        Exemplo de src: https://tally.so/embed/XXXXXX?alignLeft=1&transparentBackground=1&hideTitle=1
-        ==========================================================================
-      -->
       <div class="waitlist-form">
-        <!--
         <iframe
-          src="TALLY_FORM_URL"
-          width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
-          title="Lista de espera — HakBr Academy"
-          style="border:1px solid var(--line); border-radius:12px;"></iframe>
-        -->
-        <div class="form-placeholder" role="note">
-          <p class="mono">Formulário da lista de espera</p>
-          <p>Substitua este bloco pelo embed do Tally (troque <code>TALLY_FORM_URL</code>). Enquanto o formulário não é colado, o botão abaixo já aponta para o mesmo destino.</p>
-          <a class="btn" href="TALLY_FORM_URL">Entrar na lista de espera</a>
-        </div>
+          data-tally-src="https://tally.so/embed/b5PzP0?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="320" frameborder="0" marginheight="0" marginwidth="0"
+          title="Lista de espera — HakBr Academy"></iframe>
+        <noscript>
+          <p style="margin-top:14px;"><a class="btn" href="https://tally.so/r/b5PzP0" target="_blank" rel="noopener">Entrar na lista de espera ↗</a></p>
+        </noscript>
       </div>
 
       <p class="consent">
@@ -291,6 +275,10 @@
   </div>
 </footer>
 
+<!-- Loader do embed do Tally: define o src dos iframes [data-tally-src] e ajusta a altura -->
+<script>
+(function(){var d=document,w="https://tally.so/widgets/embed.js",v=function(){if(typeof Tally!=="undefined"){Tally.loadEmbeds();}else{d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});}};if(typeof Tally!=="undefined"){v();}else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}})();
+</script>
 <script src="../app.js" defer></script>
 </body>
 </html>
