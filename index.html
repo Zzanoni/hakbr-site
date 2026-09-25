@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{if(localStorage.getItem('hakbr-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 <title>HakBr</title>
-<meta name="description" content="HakBr — segurança da informação, feita no Brasil. Ferramentas e documentação técnica para quem trabalha com testes, pesquisa e ensino.">
+<meta name="description" content="HakBr — segurança da informação, feita no Brasil. Ferramentas de hardware (The Hack Lab) e formação para quem trabalha com testes, pesquisa e ensino.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HakBr">
 <meta property="og:title" content="HakBr — segurança da informação, do Brasil">
-<meta property="og:description" content="Ferramentas e documentação técnica para quem trabalha com testes, pesquisa e ensino.">
+<meta property="og:description" content="Ferramentas de hardware e formação para quem trabalha com testes, pesquisa e ensino.">
 <meta property="og:url" content="https://hakbr.com.br/">
 <meta property="og:image" content="https://hakbr.com.br/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,14 +20,14 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260925">
+<link rel="stylesheet" href="style.css?v=20260925-2">
 </head>
 <body>
 
 <header class="topbar">
-  <a class="wordmark" href="/"><img src="assets/hakbr-logo.png" alt="" width="18" height="18" style="width:18px;height:18px">HakBr</a>
-  <nav class="topbar-links">
-    <a href="#produtos">Gadgets</a>
+  <a class="wordmark" href="/"><img src="assets/hakbr-logo.png" alt="" width="22" height="22" style="width:22px;height:22px">HakBr</a>
+  <nav class="topbar-links" aria-label="Principal">
+    <a href="#gadgets">Gadgets</a>
     <a href="thehacklab/docs/">Docs</a>
     <a href="sobre/">Sobre</a>
     <a class="nav-academy" href="academy/">Academy</a>
@@ -39,29 +39,42 @@
 </header>
 
 <main>
-  <section class="section" style="padding-top: 88px; padding-bottom: 40px;">
-    <div class="wrap" style="max-width:820px;">
-      <p class="eyebrow">Segurança da informação · Brasil</p>
-      <h1>HakBr</h1>
-      <p class="lede">Segurança da informação, feita no Brasil. A HakBr reúne ferramentas de hardware e formação para quem trabalha com testes, pesquisa e ensino — em português e com envio nacional.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#produtos">Ver os gadgets</a>
-        <a class="btn btn--ghost" href="academy/">Conhecer a Academy</a>
+  <!-- ================= HERO ================= -->
+  <section class="section" style="padding-top:88px; padding-bottom:80px;">
+    <div class="wrap-wide">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Segurança da informação · Brasil</p>
+          <h1>Segurança da informação, feita no Brasil.</h1>
+          <p class="lede">A HakBr reúne ferramentas de hardware e formação para quem trabalha com testes, pesquisa e ensino — em português e com envio nacional.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#gadgets">Ver os gadgets</a>
+            <a class="btn btn--ghost" href="academy/">Conhecer a Academy</a>
+          </div>
+        </div>
+        <figure class="hero-frame" style="margin:0;">
+          <figcaption class="frame-bar"><span class="frame-dot"></span>the-hack-lab ~ eclipse</figcaption>
+          <!-- TODO: idealmente uma foto de Eclipse + Payload lado a lado; por ora, as duas unidades do Eclipse -->
+          <div class="frame-media">
+            <img src="assets/eclipse.jpg" alt="Duas unidades do Eclipse, frente e verso — placa azul com a marca The Hack Lab e duas antenas RF" width="1200" height="900" loading="lazy">
+          </div>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="section" id="explorar" style="padding-top:24px; padding-bottom:56px;">
+  <!-- ================= PILARES ================= -->
+  <section class="section" style="padding-top:0; padding-bottom:80px;">
     <div class="wrap-wide">
       <div class="pillar-grid">
-        <a class="pillar" href="#produtos">
-          <p class="pillar-kicker">Hardware · The Hack Lab</p>
+        <a class="pillar" href="#gadgets">
+          <span class="pillar-kicker">Hardware · The Hack Lab</span>
           <h2>Gadgets</h2>
-          <p>Ferramentas de segurança ofensiva projetadas e fabricadas no Brasil, sob a marca The Hack Lab — Eclipse, Payload e os próximos. Liga e usa, compra pela Shopee.</p>
+          <p>Ferramentas de segurança ofensiva projetadas e fabricadas no Brasil, sob a marca The Hack Lab. Liga e usa, compra pela Shopee.</p>
           <span class="pillar-cta">Ver os gadgets →</span>
         </a>
-        <a class="pillar" href="academy/">
-          <p class="pillar-kicker">Formação · Em breve</p>
+        <a class="pillar pillar--academy" href="academy/">
+          <span class="pillar-kicker">Formação · Em breve</span>
           <h2>Academy</h2>
           <p>Simulados para certificações de segurança, em português. Uma assinatura, várias certificações e um dashboard que mostra seus pontos fracos por domínio.</p>
           <span class="pillar-cta">Entrar na lista de espera →</span>
@@ -70,82 +83,75 @@
     </div>
   </section>
 
-  <hr class="rule">
-
-  <section class="section" id="produtos">
+  <!-- ================= GADGETS ================= -->
+  <section class="section" id="gadgets" style="border-top:1px solid var(--line); padding-top:56px; padding-bottom:96px;">
     <div class="wrap-wide">
-      <div class="section-head">
-        <img class="line-logo" src="assets/thehacklab-logo.jpg" alt="The Hack Lab" width="600" height="600">
-        <div>
-          <h2 style="margin:0 0 4px;">Gadgets</h2>
-          <p class="section-byline">Projetados no The Hack Lab, o laboratório de hardware do HakBr.</p>
-        </div>
+      <div class="sec-head">
+        <p class="eyebrow">The Hack Lab</p>
+        <h2>Gadgets</h2>
+        <p>Projetados no The Hack Lab, o laboratório de hardware do HakBr.</p>
       </div>
 
       <div class="product-grid">
-        <div class="product-cell">
-          <a class="product-card" href="thehacklab/docs/eclipse/">
-            <div class="product-card-media">
-              <img src="assets/eclipse-card.jpg" alt="Eclipse — placa azul com duas antenas RF" width="760" height="760" loading="lazy">
+        <article class="product-card">
+          <div class="product-media">
+            <img src="assets/eclipse-card.jpg" alt="Eclipse — placa azul com duas antenas RF" width="760" height="760" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3>Eclipse</h3>
+              <span class="badge">Disponível</span>
             </div>
-            <div class="product-card-body">
-              <div class="product-card-top">
-                <h3>Eclipse</h3>
-                <span class="badge">Disponível</span>
-              </div>
-              <p>Dispositivo RF 2.4GHz com ESP32 e duas antenas destacáveis. Alterna entre Bluetooth, BLE, WiFi e RC por um botão — liga e usa, sem software.</p>
-              <ul class="spec-chips">
-                <li>2.4 GHz</li>
-                <li>ESP32</li>
-                <li>4 modos</li>
-                <li>2× antena SMA</li>
-              </ul>
-              <span class="product-card-cta">Ver detalhes →</span>
-            </div>
-          </a>
-          <a class="buy-link" href="https://shopee.com.br/product/374200618/58253549850/" target="_blank" rel="noopener">Comprar na Shopee ↗</a>
-        </div>
-
-        <div class="product-cell">
-          <a class="product-card" href="thehacklab/docs/payload/">
-            <div class="product-card-media">
-              <img src="assets/payload-card.jpg" alt="Payload — case preto impresso em 3D com a placa Digispark / ATtiny85 e o conector USB exposto" width="760" height="760" loading="lazy">
-            </div>
-            <div class="product-card-body">
-              <div class="product-card-top">
-                <h3>Payload</h3>
-                <span class="badge">Disponível</span>
-              </div>
-              <p>Dispositivo educacional de injeção de teclado (HID). Aprenda na prática como funcionam ataques via USB — com o Payload Lab, uma trilha de estudo do conceito à defesa.</p>
-              <ul class="spec-chips">
-                <li>USB HID</li>
-                <li>ATtiny85</li>
-                <li>Arduino IDE</li>
-                <li>Payload Lab</li>
-              </ul>
-              <span class="product-card-cta">Ver detalhes →</span>
-            </div>
-          </a>
-          <a class="buy-link" href="https://shopee.com.br/product/374200618/22493699728/" target="_blank" rel="noopener">Comprar na Shopee ↗</a>
-        </div>
-
-        <div class="product-cell">
-          <div class="product-card is-soon" aria-hidden="true">
-            <div class="product-card-media product-card-media--empty">+</div>
-            <div class="product-card-body">
-              <div class="product-card-top">
-                <h3>Em breve</h3>
-                <span class="badge badge--muted">Roadmap</span>
-              </div>
+            <p>Dispositivo RF 2.4GHz com ESP32 e duas antenas destacáveis. Alterna entre Bluetooth, BLE, WiFi e RC por um botão — liga e usa, sem software.</p>
+            <ul class="spec-chips">
+              <li>2.4 GHz</li>
+              <li>ESP32</li>
+              <li>4 modos</li>
+              <li>2× antena SMA</li>
+            </ul>
+            <div class="product-actions">
+              <a class="details-link" href="thehacklab/docs/eclipse/">Ver detalhes →</a>
+              <a class="btn btn--sm" href="https://shopee.com.br/product/374200618/58253549850/" target="_blank" rel="noopener">Comprar na Shopee ↗</a>
             </div>
           </div>
-        </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="assets/payload-card.jpg" alt="Payload — case preto impresso em 3D com a placa Digispark / ATtiny85 e o conector USB exposto" width="760" height="760" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3>Payload</h3>
+              <span class="badge">Disponível</span>
+            </div>
+            <p>Dispositivo educacional de injeção de teclado (HID). Aprenda na prática como funcionam ataques via USB — com o Payload Lab, uma trilha do conceito à defesa.</p>
+            <ul class="spec-chips">
+              <li>USB HID</li>
+              <li>ATtiny85</li>
+              <li>Arduino IDE</li>
+              <li>Payload Lab</li>
+            </ul>
+            <div class="product-actions">
+              <a class="details-link" href="thehacklab/docs/payload/">Ver detalhes →</a>
+              <a class="btn btn--sm" href="https://shopee.com.br/product/374200618/22493699728/" target="_blank" rel="noopener">Comprar na Shopee ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card--soon">
+          <span class="soon-plus" aria-hidden="true">+</span>
+          <span class="soon-kicker">Roadmap</span>
+          <h3>Em breve</h3>
+          <p>Novos gadgets do The Hack Lab estão a caminho. Fique de olho — ou entre na lista da Academy para receber as novidades.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
+  <!-- ================= AVISO DE USO ================= -->
+  <section class="section" style="padding-top:0; padding-bottom:64px;">
+    <div class="wrap-wide">
       <div class="notice">
         <span class="glyph">!</span>
         <div>
@@ -161,7 +167,7 @@
   <div class="wrap-wide">
     <p>HakBr · The Hack Lab</p>
     <nav class="foot-links" aria-label="Rodapé">
-      <a href="#produtos">Gadgets</a>
+      <a href="#gadgets">Gadgets</a>
       <a href="academy/">Academy</a>
       <a href="thehacklab/docs/">Docs</a>
       <a href="sobre/">Sobre</a>
@@ -169,6 +175,6 @@
   </div>
 </footer>
 
-<script src="app.js" defer></script>
+<script src="app.js?v=20260925-2" defer></script>
 </body>
 </html>
